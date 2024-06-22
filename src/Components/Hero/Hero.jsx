@@ -6,6 +6,7 @@ import newimg from '../../assets/newimg.png';
 import manager_1 from '../../assets/manager-1.png';
 
 const Hero = () => {
+
     const [activeImageIndex, setActiveImageIndex] = useState(0);
 
     useEffect(() => {
