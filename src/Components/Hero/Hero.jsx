@@ -6,6 +6,11 @@ import newimg from '../../assets/newimg.png';
 import manager_1 from '../../assets/manager-1.png';
 
 const Hero = () => {
+    const images = [
+        { src: teach1, text: 'Learn to swim in 4 days' },
+        { src: newimg, text: 'Explore the new experience' },
+        { src: manager_1, text: 'Manage your swimming goals' }
+    ];
 
     const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -20,12 +25,17 @@ const Hero = () => {
     return (
         <div className='hero container'>
             <div className='hero-images'>
-                <img src={teach1} alt="Image 1" className={`hero-image ${activeImageIndex === 0 ? 'active' : ''}`} />
-                <img src={newimg} alt="Image 2" className={`hero-image ${activeImageIndex === 1 ? 'active' : ''}`} />
-                <img src={manager_1} alt="Image 3" className={`hero-image ${activeImageIndex === 2 ? 'active' : ''}`} />
+                {images.map((image, index) => (
+                    <img
+                        key={index}
+                        src={image.src}
+                        alt={`Image ${index + 1}`}
+                        className={`hero-image ${activeImageIndex === index ? 'active' : ''}`}
+                    />
+                ))}
             </div>
             <div className='hero-text'>
-                <h1>Learn to swim in 4 days</h1>
+                <h1>{images[activeImageIndex].text}</h1>
                 <p>Our unique teaching style is designed to equip you with high-end swimming skills in just 4 days.</p>
                 <button className='btn'>Explore More</button>
             </div>
