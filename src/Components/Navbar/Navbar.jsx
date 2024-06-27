@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import swaglogo12 from '../../assets/swaglogo12.png'
+import menu_icon from '../../assets/menu-icon.png'
 
 const Navbar = () => {
     const [sticky, setSticky] = useState(false);
@@ -27,6 +28,7 @@ const Navbar = () => {
                 <li>Testimonials</li>
                 <li><button className='btn'>Contact us</button></li>
             </ul>
+            <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu} />
         </nav>
     )
 }

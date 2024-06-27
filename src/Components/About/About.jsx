@@ -27,15 +27,15 @@ const About = () => {
                     If we can get swimmers excited about swim lessons, then they will truly want to learn how to become safer in the water,
                     guaranteeing a lifelong love of swimming.
                 </p>
-                <p>
+                {/* <p>
                     We understand that as a parent, your child's safety is paramount.
                     At SWA, we believe your swimmers deserve to be in the best hands at all times,
                     which is why our instructors go through an extensive recruitment process and a comprehensive training period.
                     In addition, we always try to keep our classes small and provide a maximum number of instructors.
-                </p>
+                </p> */}
             </div>
-
         </div>
+
     )
 }
 
