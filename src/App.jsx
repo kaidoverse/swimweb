@@ -4,6 +4,8 @@ import Hero from './Components/Hero/Hero'
 import Program from './Components/Program/Program'
 import Title from './Components/Title/Title'
 import About from './Components/About/About'
+import Instructor from './Components/Instructor/Instructor'
+
 import Achievement from './Components/Achievements/Achievement'
 
 const App = () => {
@@ -16,8 +18,9 @@ const App = () => {
         <Program />
         <hr />
         <Title subTitle='FIND OUT MORE' />
-
         <About />
+
+        {/* <Instructor /> */}
         <Achievement />
       </div>
     </div>

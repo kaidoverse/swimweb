@@ -1,70 +1,80 @@
-import React, { useState } from 'react';
-import './Achievement.css';
+
+import React, { useState } from 'react'
+import './Achievement.css'
 import CountUp from 'react-countup';
 import ScrollTrigger from 'react-scroll-trigger';
 
 const Achievement = () => {
-    const [counterState, setCounterState] = useState(false);
+
+    const [counterState, setCounterState] = useState(false)
 
     return (
-        <div className='achieve'>
-            <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState(false)}>
-                <div className='grid'>
-                    <div className='item'>
-                        <h2 className='counter-text'>
+        <div className='achieve '>
+            <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState
+                (false)}>
+                <div className='grid ' >
+
+                    <div>
+                        <h2 className='text'>
                             {counterState &&
                                 <CountUp
                                     start={0}
                                     end={9}
                                     duration={5}
-                                />
+                                >
+                                </CountUp>
                             }+
                         </h2>
-                        <p className='item-text'>Years of Experience</p>
+                        <p className='py '>Years of Experience</p>
                     </div>
 
-                    <div className='item'>
-                        <h2 className='counter-text'>
+                    <div>
+                        <h2 className='text'>
                             {counterState &&
                                 <CountUp
                                     start={0}
                                     end={95}
                                     duration={5}
-                                />
+                                >
+                                </CountUp>
                             }%
                         </h2>
-                        <p className='item-text'>Success Rate</p>
+                        <p className='py '>Success Rate</p>
                     </div>
 
-                    <div className='item'>
-                        <h2 className='counter-text'>
+                    <div>
+                        <h2 className='text'>
                             {counterState &&
                                 <CountUp
                                     start={0}
                                     end={600}
                                     duration={5}
-                                />
+                                >
+                                </CountUp>
                             }+
                         </h2>
-                        <p className='item-text'>Satisfied clients</p>
+                        <p className='py '>Satisfied clients</p>
                     </div>
 
-                    <div className='item'>
-                        <h2 className='counter-text'>
+                    <div>
+                        <h2 className='text'>
                             {counterState &&
                                 <CountUp
                                     start={0}
                                     end={95}
                                     duration={5}
-                                />
+                                >
+                                </CountUp>
                             }%
                         </h2>
-                        <p className='item-text'>Recommend us</p>
+                        <p className='py '>Recommend us</p>
                     </div>
+
                 </div>
             </ScrollTrigger>
+
         </div>
-    );
+    )
 }
 
-export default Achievement;
+export default Achievement
