@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 * {
   margin: 0;
   padding: 0;
@@ -45,4 +49,15 @@ a {
 .btn.dark-btn {
   background: #212ea0;
   color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .btn {
+    padding-left: 14px 22px;
+  }
 }

@@ -1,22 +1,25 @@
-/* Achievement.css */
-
 .achieve {
-  padding: 10px 20px; /* Adjust padding as needed */
+  /* margin: 80px auto; */
+  /* width: 90%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: space-between; */
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
   text-align: center;
 }
 
 .item {
-  padding: 10px; /* Adjust padding for each grid item */
+  padding: 20px;
 }
 
 .counter-text {
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 600;
   color: #262626;
 }
@@ -27,8 +30,45 @@
   font-weight: 600;
 }
 
+@media (max-width: 768px) {
+  .grid {
+    gap: 1px; /* Further reduce gap between items */
+  }
+
+  .counter-text {
+    font-size: 24px; /* Adjust font size further */
+  }
+  .item-text {
+    padding-bottom: 2px;
+    font-size: 16px;
+    color: #595959;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 480px) {
+  .achieve {
+    /* display: flex; */
+    /* flex-direction: column; */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .grid {
+    flex-direction: column;
+    gap: 5px; /* Further reduce gap */
+  }
+
+  .counter-text {
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  .item-text {
+    font-size: 14px; /* Decrease font size */
+  }
+}
+
 /* Media Queries for Smaller Screens */
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .achieve {
     padding: 30px 15px;
   }
@@ -51,4 +91,4 @@
   .counter-text {
     font-size: 3rem;
   }
-}
+} */

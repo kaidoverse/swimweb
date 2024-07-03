@@ -13,6 +13,7 @@
 
 .about-right {
   flex-basis: 56%;
+  overflow: hidden;
 }
 
 .about-img {
@@ -46,4 +47,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.about-exp {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column-reverse;
+}
+
+@media (max-width: 800px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .about-left {
+    flex-basis: 100%;
+    margin: 20px;
+    order: 2;
+  }
+
+  .about-right {
+    flex-basis: 100%;
+  }
 }
