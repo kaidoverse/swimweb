@@ -3,7 +3,7 @@ import './Program.css'
 import breaststroke from '../../assets/breaststroke.png'
 import freestyle from '../../assets/freestyle.png'
 import backstroke from '../../assets/backstroke.png'
-import image_1 from '../../assets/image-1.png'
+import breaststroke2 from '../../assets/breaststroke2.png'
 import image_2 from '../../assets/image-2.png'
 import image_3 from '../../assets/image-3.png'
 
@@ -22,7 +22,7 @@ const Program = () => {
                 <div className='programm'>
                     <img src={breaststroke} alt="" />
                     <div className='caption'>
-                        <img src={image_1} alt="" />
+                        <img src={breaststroke2} alt="" />
                         <p>Breaststroke</p>
                     </div>
                 </div>
