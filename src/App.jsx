@@ -7,6 +7,8 @@ import About from './Components/About/About'
 import Instructor from './Components/Instructor/Instructor'
 
 import Achievement from './Components/Achievements/Achievement'
+import Testimonials from './Components/Testimonials/Testimonials'
+import Footer from './Components/Footer/Footer'
 
 const App = () => {
   return (
@@ -25,6 +27,10 @@ const App = () => {
 
         <Achievement />
         {/* <Instructor /> */}
+        <Title subTitle='Testimonials' title='what our clients say' />
+
+        <Testimonials />
+        <Footer />
       </div>
     </div>
   )
