@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.css'
-import swam_logo from '../../assets/swam-logo.png'
+import Swaglogo3 from '../../assets/Swaglogo3.png'
 import { SiDatabricks } from 'react-icons/si'
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
 import { FiMail } from 'react-icons/fi'
@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="container">
                 <div className="top">
                     <div className="logo-footer"><SiDatabricks className='icon' />
-                        <img src={swam_logo} alt="" />
+                        <img src={Swaglogo3} alt="" />
                     </div>
                     <ScrollToTop smooth />
 

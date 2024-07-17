@@ -27,8 +27,9 @@ const Navbar = () => {
                 <li>Instructors</li>
                 <li>Testimonials</li>
                 <li><button className='btn'>Contact us</button></li>
-                <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu} />
             </ul>
+            <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu} />
+
         </nav>
     )
 }
