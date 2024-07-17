@@ -7,6 +7,8 @@ import About from './Components/About/About'
 import Instructor from './Components/Instructor/Instructor'
 
 import Achievement from './Components/Achievements/Achievement'
+import Footer from './Components/Footer/Footer'
+import './index.css';
 
 const App = () => {
   return (
@@ -25,6 +27,7 @@ const App = () => {
 
         <Achievement />
         {/* <Instructor /> */}
+        <Footer />
       </div>
     </div>
   )
