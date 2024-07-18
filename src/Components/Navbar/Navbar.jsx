@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import swam_logo from '../../assets/swam-logo.png'
 import menu_icon from '../../assets/menu-icon.png'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [sticky, setSticky] = useState(false);
@@ -21,12 +22,12 @@ const Navbar = () => {
         <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
             <img src={swam_logo} alt="" className='Swaglogo12' />
             <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
-                <li>Home</li>
-                <li>Program</li>
-                <li>About us</li>
-                <li>Instructors</li>
-                <li>Testimonials</li>
-                <li><button className='btn'>Contact us</button></li>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/programpage'>Program</Link></li>
+                <li><Link to='/aboutpage'>About us</Link></li>
+                <li><Link to='/InstructorsPage'>Instructors</Link></li>
+                <li><Link to='/TestimonialsPage'>Testimonials</Link></li>
+                <li><Link to='ContactPage'><button className='btn'>Contact us</button></Link></li>
             </ul>
             <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu} />
 
