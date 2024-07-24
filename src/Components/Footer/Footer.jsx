@@ -11,14 +11,8 @@ const Footer = () => {
     return (
         <div className='footer'>
             <div className="container">
-                <div className="top">
-                    <div className="logo-footer"><SiDatabricks className='icon' />
-                        <img src={Swaglogo3} alt="" />
-                    </div>
-                    <ScrollToTop smooth />
-
-                    <BsFillArrowUpCircleFill className='icon' />
-                </div>
+                <img src={Swaglogo3} alt="" className='logo-footer' />
+                <ScrollToTop smooth />
                 <div className="col-container">
                     <div className="col">
                         <h3>Navigation</h3>
@@ -30,21 +24,17 @@ const Footer = () => {
                         <p>Contact</p>
                     </div>
                     <div className="col">
-                        <h3>My Account</h3>
-                        <p>Home</p>
-                        <p>Program</p>
-                        <p>About</p>
-                        <p>Instructors</p>
-                        <p>Testimonials</p>
-                        <p>Contact</p>
+                        <h3>Contact</h3>
+                        <p>123 Citrus Lane</p>
+                        <p>123-456-7890</p>
+                        <p>Swama@swa.com</p>
+
                     </div>
                     <div className="col">
                         <h3>Information</h3>
                         <p>Home</p>
-                        <p>Program</p>
-                        <p>About</p>
-                        <p>Instructors</p>
-                        <p>Testimonials</p>
+                        <p>Data</p>
+                        <p>Cloud</p>
                         <p>Contact</p>
                     </div>
                     <div className="col">

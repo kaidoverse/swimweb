@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  min-height: 60vh;
+  min-height: 50vh;
   position: absolute;
   background: rgba(255, 255, 255, 0.7);
   display: flex;
@@ -13,7 +13,6 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-
 }
 
 .footer:before {
@@ -112,6 +111,16 @@
   font-size: 3rem;
 }
 
+/* @media screen and (max-width: 1024) {
+  .footer form .social-icon {
+    margin: 1rem 1rem 1rem 0;
+    padding: 0.6rem;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    font-size: 2rem;
+  }
+} */
+
 @media screen and (max-width: 940px) {
   .footer {
     height: 100%;
@@ -119,9 +128,16 @@
 
   .footer .col-container {
     grid-template-columns: 2fr 2fr;
+    font-size: 15px;
   }
 
   .footer form {
     grid-column: 1 / span 2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .col-container h3 p {
+    font-size: 2px;
   }
 }

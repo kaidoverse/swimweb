@@ -11,6 +11,11 @@ nav {
   z-index: 10;
 }
 
+.containerr {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 .Swaglogo12 {
   width: 100px;
 }
