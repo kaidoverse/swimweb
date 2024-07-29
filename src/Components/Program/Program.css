@@ -1,6 +1,6 @@
 .program {
   margin: 80px auto;
-  padding: 10%;
+  /* padding: 10%; */
   width: 90%;
   display: flex;
   align-items: center;
@@ -29,6 +29,9 @@
 .programm {
   flex-basis: 31%;
   position: relative;
+  box-shadow: 3.7px 0px 2.8px -30px rgba(0, 0, 0, 0.02),
+    12.5px 0px 9.4px -30px rgba(0, 0, 0, 0.03),
+    56px 0px 42px -30px rgba(0, 0, 0, 0.05);
 }
 
 .caption {
