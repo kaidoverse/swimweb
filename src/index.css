@@ -3,7 +3,8 @@
 @tailwind utilities; */
 
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-
+/* @import "mdb-react-ui-kit/dist/css/mdb.min.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css"; */
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
@@ -16,7 +17,8 @@
 }
 
 body {
-  background: #f5f5f5;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  /* background: #fdfdf1; */
 }
 
 a {
@@ -29,6 +31,7 @@ a {
 /* .container {
   padding-left: 10%;
   padding-right: 10%;
+  background: #fdfdf1;
 } */
 
 .btn {

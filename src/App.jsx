@@ -19,10 +19,12 @@ const App = () => {
       <Hero />
 
 
-      <div className='container'>
+      <div>
         <About />
-        {/* <Title subTitle='Our Programs' title='what we offer' /> */}
+
         <Program />
+
+        {/* <Title subTitle='Our Programs' title='what we offer' /> */}
 
         <Title subTitle='FIND OUT MORE' />
 

@@ -13,11 +13,11 @@ import backstroke1 from '../../assets/backstroke1.png'
 const Program = () => {
     return (
         <div className='head'>
-            <h2>Do you want to learn to swim?
+            {/* <h2>Do you want to learn to swim?
 
                 We teach swimming from the very beginning,
                 <br />
-                where our instructors approach everyone with patience and understanding.</h2>
+                where our instructors approach everyone with patience and understanding.</h2> */}
             <div className='program'>
                 <div className='programm'>
                     <img src={breaststroke} alt="" />

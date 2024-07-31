@@ -20,13 +20,14 @@ const About = () => {
                     Our staff is perfectly trained in a calm and pleasant atmosphere
                     to make each participant of the course overcome the fear of water and
                     learn various swimming techniques.
-                </p>
-                <p>
                     SWA wants you and your children to love the water -
                     so it is our goal and promise to educate all swimmers in a fun and happy environment!
                     If we can get swimmers excited about swim lessons, then they will truly want to learn how to become safer in the water,
                     guaranteeing a lifelong love of swimming.
                 </p>
+                {/* <p>
+                   
+                </p> */}
                 {/* <p>
                     We understand that as a parent, your child's safety is paramount.
                     At SWA, we believe your swimmers deserve to be in the best hands at all times,

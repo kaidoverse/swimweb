@@ -8,7 +8,7 @@ import manager_1 from '../../assets/manager-1.png';
 const Hero = () => {
     const images = [
         { src: teach1, text: 'Learn to swim in 4 days' },
-        { src: newimg, text: 'Explore the new experience' },
+        { src: newimg, text: 'All female instructor group' },
         { src: manager_1, text: 'Manage your swimming goals' }
     ];
 
