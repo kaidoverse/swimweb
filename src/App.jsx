@@ -11,6 +11,8 @@ import Achievement from './Components/Achievements/Achievement'
 import Footer from './Components/Footer/Footer'
 import './index.css';
 import ColorChangeCards from './Components/ChangeCard/ColorChangeCards'
+import Gridcard from './Components/gridcard/Gridcard'
+import WhyLearn from './Components/WhyLearn/WhyLearn'
 
 const App = () => {
   return (
@@ -20,9 +22,13 @@ const App = () => {
 
 
       <div>
+        <WhyLearn />
         <About />
 
         <Program />
+
+        {/* <Gridcard /> */}
+
 
         {/* <Title subTitle='Our Programs' title='what we offer' /> */}
 
@@ -31,7 +37,7 @@ const App = () => {
         <Title subTitle='Why choose us?' title='why choose us?' />
         {/* <ColorChangeCards /> */}
         <Achievement />
-        {/* <Instructor /> */}
+        <Instructor />
         <Footer />
       </div>
     </div>

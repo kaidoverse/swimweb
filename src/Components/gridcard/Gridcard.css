@@ -1,0 +1,79 @@
+/* Container styling for the cards */
+.card-container {
+  display: flex;
+  /* direction: var(--direction); */
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: center; /* Space between the cards */
+  gap: 20px; /* Gap between the cards */
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 50px;
+}
+
+/* General card styling */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px; /* Fixed width for each card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Card body styling */
+.card-body {
+  padding: 20px;
+}
+
+/* Title styling */
+.card-title {
+  font-size: 1.5em;
+  margin: 0 0 10px;
+}
+
+/* Text styling */
+.card-text {
+  font-size: 1em;
+  color: #555;
+}
+
+/* List group styling */
+.list-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-group-item {
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+  background: #f8f9fa;
+}
+
+.list-group-item:first-child {
+  border-top: none;
+}
+
+/* Card link styling */
+.card-link {
+  margin-right: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
