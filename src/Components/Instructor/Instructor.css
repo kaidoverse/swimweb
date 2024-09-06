@@ -1,6 +1,7 @@
 .instructor {
   margin: 80px auto;
   padding: 0 80px;
+
   position: relative;
 }
 
@@ -22,9 +23,9 @@
   left: 0;
 }
 
-/* .slider {
+.slider {
   overflow: hidden;
-} */
+}
 
 .slider ul {
   display: flex;
@@ -66,7 +67,7 @@
 }
 
 @media (max-width: 800px) {
-  .instructors {
+  .instructor {
     padding: 0 40px;
   }
 
@@ -76,7 +77,7 @@
     width: 35px;
   }
 
-  .instructors ul li {
+  .instructor ul li {
     padding: 10px;
   }
 

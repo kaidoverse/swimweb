@@ -13,6 +13,7 @@ import './index.css';
 import ColorChangeCards from './Components/ChangeCard/ColorChangeCards'
 import Gridcard from './Components/gridcard/Gridcard'
 import WhyLearn from './Components/WhyLearn/WhyLearn'
+import TestimonialCarousel from './Components/TestimonialCarousel/TestimonialCarousel'
 
 const App = () => {
   return (
@@ -26,15 +27,16 @@ const App = () => {
         <About />
 
         <Program />
+        {/* <TestimonialCarousel /> */}
 
         {/* <Gridcard /> */}
 
 
         {/* <Title subTitle='Our Programs' title='what we offer' /> */}
 
-        <Title subTitle='FIND OUT MORE' />
+        {/* <Title subTitle='FIND OUT MORE' /> */}
 
-        <Title subTitle='Why choose us?' title='why choose us?' />
+        <Title title='why choose us?' />
         {/* <ColorChangeCards /> */}
         <Achievement />
         <Instructor />

@@ -27,7 +27,7 @@ const Instructor = () => {
     }
 
     return (
-        <div className='instructor' id='instructors'>
+        <div className='instructor' id='instructor'>
             <img src={next_iconn} alt="" className='next-btn' onClick={slideForward} />
             <img src={back_iconn} alt="" className='back-btn' onClick={slideBackward} />
             <div className="slider">
@@ -38,7 +38,7 @@ const Instructor = () => {
                                 <img src={user_1} alt="" />
                                 <div>
                                     <h3>William Jackson</h3>
-                                    <span>Edusity, Usa</span>
+                                    <span>Beginner Swimmer</span>
                                 </div>
                             </div>
                             <p>Choosing to pursue my degree at Edusity was one of

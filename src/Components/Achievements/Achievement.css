@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 .achieve {
   /* margin: 80px auto; */
   /* width: 90%; */
@@ -6,8 +12,8 @@
   justify-content: center;
   /* justify-content: space-between; */
   background-attachment: fixed;
-  background-color: #ffffff;
-  background-image: url("https://templates.bwlthemes.com/mind_trainer/images/pricing_bg.jpg");
+  background-color: #013b59;
+  /* background-image: url("../../assets/CompetitiveSwim.png"); */
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,6 +22,7 @@
   overflow: hidden;
   padding: 70px 0px;
   position: relative;
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 85% 100%, 15% 100%, 0% 90%); */
 }
 
 .grid {
@@ -32,12 +39,12 @@
 .counter-text {
   font-size: 40px;
   font-weight: 600;
-  color: #262626;
+  color: #f6f8f9;
 }
 
 .item-text {
   /* padding-top: 2px; */
-  color: #595959;
+  color: #e1e6e9;
   font-weight: 600;
 }
 

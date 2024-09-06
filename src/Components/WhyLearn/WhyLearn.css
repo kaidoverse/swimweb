@@ -4,20 +4,24 @@
   align-items: center;
   text-align: center; /* Center the heading text */
   padding: 20px;
-  background-color: #013b59;
+  background-color: #ffffff;
   height: 50vh;
+  position: relative;
 }
 
 .heading {
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #fefdfd;
+  color: #013b59;
+  font-weight: 500;
+  font-size: 40px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow similar to the itemm */
 }
 
 .items {
   display: flex;
   justify-content: center; /* Center items horizontally */
+  align-items: center;
   gap: 20px; /* Space between items */
 }
 
@@ -27,11 +31,12 @@
   border: 1px solid #ddd;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
-  width: 230px;
-  height: 230px;
+  width: 300px;
+  height: 300px;
   text-align: center;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .itemm:hover {

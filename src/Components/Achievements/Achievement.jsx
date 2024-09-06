@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import './Achievement.css';
 import CountUp from 'react-countup';
 import ScrollTrigger from 'react-scroll-trigger';
+// import CompetitiveSwim from '../../assets/CompetitiveSwim.png';
 
 const Achievement = () => {
     const [counterState, setCounterState] = useState(false);
 
     return (
         <div className='achieve'>
+            {/* <img src={CompetitiveSwim} alt="competetiveswim" /> */}
+
             <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState(false)}>
                 <div className='grid'>
                     <div className='item'>
