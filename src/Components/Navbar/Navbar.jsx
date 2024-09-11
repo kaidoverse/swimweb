@@ -43,11 +43,11 @@ const Navbar = () => {
             <img src={swam_logo} alt="Logo" className='Swaglogo12' />
             <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
                 <li><Link to='/'>Home</Link></li>
-                <li><Link to='/programpage'>Program</Link></li>
-                <li><Link to='/aboutpage'>About us</Link></li>
-                <li><Link to='/InstructorsPage'>Instructors</Link></li>
-                <li><Link to='/TestimonialsPage'>Testimonials</Link></li>
-                <li><Link to='/ContactPage'><button className='btn'>Contact us</button></Link></li>
+                <li><Link to='/OurPackages'>Program</Link></li>
+                <li><Link to='/OurTeam'>About us</Link></li>
+                <li><Link to='/InstructPage'>Instructors</Link></li>
+                <li><Link to='/ClientSays'>Testimonials</Link></li>
+                <li><Link to='/ContactUs'><button className='btn'>Contact us</button></Link></li>
             </ul>
             <img src={menu_icon} alt="Menu Icon" className='menu-icon' onClick={toggleMenu} />
         </nav>

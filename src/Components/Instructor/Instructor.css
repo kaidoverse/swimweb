@@ -1,107 +1,151 @@
-.instructor {
+.instructorr {
+  /* max-width: 800px; */
   margin: 80px auto;
-  padding: 0 80px;
-
+  /* padding: 0 100px; */
+  padding-left: 10%;
+  padding-right: 10%;
   position: relative;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
 
-.next-btn,
-.back-btn {
+.instructorr-title {
+  text-align: center;
+  font-size: 40px;
+  color: #013b59;
+  font-weight: 500;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* .sliderr-container {
+  width: 100%;
+  position: relative;
+} */
+
+.next-btnn,
+.back-btnn {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
   padding: 15px;
   width: 50px;
+  /* height: 50px; */
+  /* margin-top: 50px; */
   border-radius: 50%;
   cursor: pointer;
-  background: #212ea0;
+  background: #013b59;
+  /* z-index: 10; */
 }
 
-.back-btn {
-  right: auto;
-  left: 0;
+.next-btnn {
+  right: 100px;
 }
 
-.slider {
+.back-btnn {
+  /* left: -10px; */
+  /* right: auto; */
+  left: 100px;
+}
+
+.sliderr {
   overflow: hidden;
+  /* width: 100%; */
 }
 
-.slider ul {
+.sliderr ul {
   display: flex;
   width: 200%;
   overflow: hidden;
   transition: 0.5s;
 }
 
-.slider ul li {
+.sliderr ul li {
   list-style: none;
-  width: 50%;
+  width: 25%;
+  /* box-sizing: border-box; */
   padding: 20px;
 }
 
-.slide {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  padding: 40px;
+.slidee {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 50px;
   border-radius: 10px;
   color: #676767;
-  line-height: 1.4;
+  line-height: 1.6;
+  height: 400px;
+  /* display: flex;
+  flex-direction: column; */
 }
 
-.slide img {
+.slidee img {
   width: 65px;
   border-radius: 50%;
   margin-right: 10px;
-  border: 4px solid #212ea0;
+  border: 4px solid #013b59;
 }
 
-.user-info {
+.user-infoo {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   font-size: 15px;
 }
 
-.user-info h3 {
-  color: #212ea0;
+.user-infoo h3 {
+  color: #013b59;
+  font-size: 20px;
+
+  margin: 0;
+}
+
+.user-infoo span {
+  font-size: 16px;
+  color: #888;
+}
+
+.slidee p {
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 @media (max-width: 800px) {
-  .instructor {
-    padding: 0 40px;
+  .instructorr {
+    padding: 0 30px;
   }
-
-  .next-btn,
-  .back-btn {
+  .instructorr-title {
+    font-size: 2rem;
+  }
+  .next-btnn,
+  .back-btnn {
     padding: 10px;
     width: 35px;
+    height: 35px;
   }
-
-  .instructor ul li {
-    padding: 10px;
-  }
-
-  .slide {
-    padding: 10px;
-  }
-  .slide img {
-    width: 50px;
-    border: 3px solid #212ea0;
+  .slidee {
+    padding: 20px;
+    height: 350px;
   }
 }
 
 @media (max-width: 600px) {
-  .user-info {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 12px;
+  .instructorr-title {
+    font-size: 1.8rem;
   }
-
-  .user-info h3 {
+  .user-infoo {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  .user-infoo img {
+    margin-bottom: 10px;
+  }
+  .user-infoo h3 {
     font-size: 16px;
   }
-
-  .slider p {
-    font-size: 12px;
+  .slidee p {
+    font-size: 14px;
   }
 }

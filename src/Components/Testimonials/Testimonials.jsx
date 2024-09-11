@@ -1,7 +1,7 @@
 import { React, useRef } from 'react'
 import './Testimonials.css'
-import next_iconn from '../../assets/next-iconn.png'
-import back_iconn from '../../assets/back-iconn.png'
+import next_icon from '../../assets/next-icon.png'
+import back_icon from '../../assets/back-icon.png'
 import user_1 from '../../assets/user-1.png'
 import user_2 from '../../assets/user-2.png'
 import user_3 from '../../assets/user-3.png'
@@ -28,8 +28,8 @@ const Testimonials = () => {
 
     return (
         <div className='testimonials' id='testimonials'>
-            <img src={next_iconn} alt="" className='next-btn' onClick={slideForward} />
-            <img src={back_iconn} alt="" className='back-btn' onClick={slideBackward} />
+            <img src={next_icon} alt="" className='next-btn' onClick={slideForward} />
+            <img src={back_icon} alt="" className='back-btn' onClick={slideBackward} />
             <div className="slider">
                 <ul ref={slider}>
                     <li>

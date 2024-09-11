@@ -1,26 +1,24 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 import './index.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ProgramPage from './Routes/ProgramPage'
-import AboutPage from './Routes/AboutPage'
-import InstructorsPage from './Routes/InstructorsPage'
-import TestimonialsPage from './Routes/TestimonialsPage'
-import ContactPage from './Routes/TestimonialsPage'
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ClientSays from "./Routes/ClientSays/ClientSays";
+import ContactUs from "./Routes/ContactUs/ContactUs";
+import InstructPage from "./Routes/InstructPage/InstructPage";
+import OurTeam from "./Routes/OurTeam/OurTeam";
+import OurPackages from "./Routes/OurPackages/OurPackages";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<App />} />
-      <Route path='/programpage' element={<ProgramPage />} />
-      <Route path='/aboutpage' element={<AboutPage />} />
-      <Route path='/instructorspage' element={<InstructorsPage />} />
-      <Route path='/testimonialspage' element={<TestimonialsPage />} />
-      <Route path='/contactpage' element={<ContactPage />} />
-    </Routes>
-  </BrowserRouter>,
+    <BrowserRouter>
+        <Routes>
+            <Route path='/' element={<App />} />
+            <Route path='/OurPackages' element={<OurPackages />} />
+            <Route path='/OurTeam' element={<OurTeam />} />
+            <Route path='/InstructPage' element={<InstructPage />} />
+            <Route path='/ClientSays' element={<ClientSays />} />
+            <Route path='/ContactUs' element={<ContactUs />} />
+        </Routes>
+    </BrowserRouter>,
 )

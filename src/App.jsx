@@ -14,6 +14,9 @@ import ColorChangeCards from './Components/ChangeCard/ColorChangeCards'
 import Gridcard from './Components/gridcard/Gridcard'
 import WhyLearn from './Components/WhyLearn/WhyLearn'
 import TestimonialCarousel from './Components/TestimonialCarousel/TestimonialCarousel'
+import WhyChooseUs from './Components/WhyUs/WhyChooseUs'
+import Testimonials from './Components/Instructor/Instructor'
+import MeetOurTeam from './Components/MeetTeam/MeetTeam'
 
 const App = () => {
   return (
@@ -36,10 +39,12 @@ const App = () => {
 
         {/* <Title subTitle='FIND OUT MORE' /> */}
 
-        <Title title='why choose us?' />
-        {/* <ColorChangeCards /> */}
+        {/* <Title title='why choose us?' /> */}
+        <WhyChooseUs />
         <Achievement />
-        <Instructor />
+        {/* <Instructor /> */}
+        <Testimonials />
+        <MeetOurTeam />
         <Footer />
       </div>
     </div>

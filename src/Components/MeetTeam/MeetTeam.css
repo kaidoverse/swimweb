@@ -1,0 +1,69 @@
+.meet-our-team {
+  padding: 50px 10%;
+  text-align: center;
+}
+
+.meet-our-team h2 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #013b59;
+  margin-bottom: 40px;
+}
+
+.team-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-members-container {
+  overflow: hidden;
+}
+
+.team-members-slider {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-members-slider li {
+  flex: 0 0 33.33%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.team-member {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.member-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  color: #013b59;
+  margin-bottom: 5px;
+}
+
+.member-role {
+  font-size: 1rem;
+  color: #676767;
+}
+
+.nav-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .team-members-slider li {
+    flex: 0 0 100%;
+  }
+}
