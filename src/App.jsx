@@ -16,7 +16,7 @@ import WhyLearn from './Components/WhyLearn/WhyLearn'
 import TestimonialCarousel from './Components/TestimonialCarousel/TestimonialCarousel'
 import WhyChooseUs from './Components/WhyUs/WhyChooseUs'
 import Testimonials from './Components/Instructor/Instructor'
-import MeetOurTeam from './Components/MeetTeam/MeetTeam'
+import Takers from './Components/Takers/Takers'
 
 const App = () => {
   return (
@@ -26,6 +26,7 @@ const App = () => {
 
 
       <div>
+        <Takers />
         <WhyLearn />
         <About />
 
@@ -44,7 +45,6 @@ const App = () => {
         <Achievement />
         {/* <Instructor /> */}
         <Testimonials />
-        <MeetOurTeam />
         <Footer />
       </div>
     </div>
