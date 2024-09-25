@@ -17,6 +17,7 @@ import TestimonialCarousel from './Components/TestimonialCarousel/TestimonialCar
 import WhyChooseUs from './Components/WhyUs/WhyChooseUs'
 import Testimonials from './Components/Instructor/Instructor'
 import Takers from './Components/Takers/Takers'
+import MeetTeam from './Components/MeetTeam/MeetTeam'
 
 const App = () => {
   return (
@@ -24,13 +25,14 @@ const App = () => {
       <Navbar />
       <Hero />
 
-
       <div>
-        <Takers />
-        <WhyLearn />
+        <WhyChooseUs />
+
         <About />
+        {/* <WhyLearn /> */}
 
         <Program />
+
         {/* <TestimonialCarousel /> */}
 
         {/* <Gridcard /> */}
@@ -41,10 +43,11 @@ const App = () => {
         {/* <Title subTitle='FIND OUT MORE' /> */}
 
         {/* <Title title='why choose us?' /> */}
-        <WhyChooseUs />
+        <Takers />
         <Achievement />
         {/* <Instructor /> */}
         <Testimonials />
+        <MeetTeam />
         <Footer />
       </div>
     </div>

@@ -35,26 +35,27 @@
 .team-member {
   background-color: #f8f8f8;
   border-radius: 10px;
-  padding: 20px;
+  padding: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .member-image {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .team-member h3 {
-  font-size: 1.5rem;
+  font-size: 35px;
   color: #013b59;
   margin-bottom: 5px;
 }
 
 .member-role {
-  font-size: 1rem;
+  font-size: 30px;
+  font-weight: 400;
   color: #676767;
 }
 

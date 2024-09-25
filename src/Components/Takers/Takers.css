@@ -7,6 +7,7 @@
   color: #fff;
   padding: 50px 0;
   text-align: center;
+  position: relative;
 }
 
 .heading-0 {
@@ -20,6 +21,7 @@
 .items {
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
   width: 100%;
   max-width: 1200px;
 }
@@ -47,7 +49,29 @@
   font-size: 1rem;
   color: #fff;
   line-height: 25px;
+  margin-top: auto;
 }
+
+/* .custom-shape-divider-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(145% + 1.3px);
+  height: 142px;
+}
+
+.custom-shape-divider-bottom .shape-fill {
+  fill: #ffffff; 
+} */
 
 /* @media (min-width: 2560px) {
   .heading-0 {

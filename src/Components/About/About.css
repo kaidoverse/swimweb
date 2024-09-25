@@ -7,7 +7,7 @@
   height: 120vh;
   padding-left: 10%;
   padding-right: 10%;
-  position: relative; /* Ensure the shape divider is positioned correctly */
+  position: relative;
 }
 
 .about-left {

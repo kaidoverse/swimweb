@@ -10,20 +10,43 @@
   color: #333;
 }
 
+/* .pricing-container h3 {
+  font-size: 25px;
+  font-weight: 200;
+} */
+
+.pricing-container h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  margin: 0;
+  margin-bottom: 50px;
+  color: #333;
+  max-width: 80%; /* Control how wide the heading text can go */
+  margin: 0 auto 10px;
+  word-wrap: break-word; /* Ensure text wraps */
+  white-space: normal; /* Allow text to wrap to new lines */
+}
+
 .pricing-cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
 }
 
 .pricing-card {
-  flex: 1;
+  flex: 1 1 calc(33.333% - 20px);
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease;
+  margin-bottom: 20px;
 }
 
 .pricing-card:hover {
@@ -96,5 +119,6 @@
 @media (max-width: 768px) {
   .pricing-cards {
     flex-direction: column;
+    /* flex: 1 1 100%; */
   }
 }
