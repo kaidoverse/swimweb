@@ -11,18 +11,20 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (location.pathname === '/') {
-                setSticky(window.scrollY > 50);
+            if (window.scrollY > 50) {
+                setSticky(true);
+            } else {
+                setSticky(false);
             }
         };
 
         window.addEventListener('scroll', handleScroll);
 
-        // Clean up the event listener when the component unmounts
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [location.pathname]);
+    }, []); // No dependencies now
+
 
     useEffect(() => {
         // Set sticky to true if not on the home page (App.jsx)

@@ -123,3 +123,105 @@
 .custom-shape-divider-bottom .shape-fill {
   fill: #ffffff; /* Adjust the color as needed */
 }
+
+@media (max-width: 800px) {
+  .about {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align */
+    justify-content: center; /* Center content */
+  }
+
+  .about-left {
+    flex-basis: 100%; /* Full width for image */
+    margin: 15px 0; /* Vertical spacing */
+  }
+
+  .about-right {
+    flex-basis: 100%; /* Full width for text */
+    margin: 0; /* No margin */
+    text-align: center; /* Center text */
+  }
+
+  .about h3 {
+    font-weight: 600;
+    font-size: 12px;
+    color: #212ea0;
+  }
+
+  .about h2 {
+    font-size: 30px;
+    color: #000f38;
+    margin: 5px 0;
+    max-width: 400px;
+  }
+
+  .about p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding-left: 5%; /* Reduce side padding */
+    padding-right: 5%; /* Reduce side padding */
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  .about-left {
+    flex-basis: 50%; /* Original size for larger screens */
+    position: relative;
+  }
+
+  .about-img {
+    width: 100%; /* Ensure it scales down */
+    max-width: 300px; /* Limit maximum width */
+    border-radius: 10px;
+  }
+
+  .about h3 {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .about h2 {
+    font-size: 24px; /* Further reduce font size */
+    max-width: 90%; /* Allow more room */
+  }
+
+  .about p {
+    font-size: 14px; /* Adjust for readability */
+    line-height: 1.4; /* Increase line height */
+  }
+
+  .play-icon {
+    width: 50px; /* Adjust icon size */
+  }
+}
+
+@media (max-width: 400px) {
+  .about {
+    height: auto; /* Allow height to adjust */
+    padding: 10px; /* Reduce padding for very small screens */
+  }
+
+  .about h3 {
+    font-size: 12px; /* Smaller font for headings */
+  }
+
+  .about h2 {
+    font-size: 20px; /* Smaller font size for titles */
+  }
+
+  .about p {
+    font-size: 12px; /* Smaller font size for paragraphs */
+  }
+
+  .play-icon {
+    width: 40px; /* Smaller icon for tight spaces */
+  }
+
+  .custom-shape-divider-bottom svg {
+    width: 100%; /* Ensure the shape divider is responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+}

@@ -9,8 +9,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   z-index: 100;
+  background: transparent;
+  transition: background 0.5s;
 }
 
+.dark-nav {
+  background: #013b59; /* Background color when sticky */
+  transition: background 0.5s;
+}
 .containerr {
   padding-left: 10%;
   padding-right: 10%;

@@ -11,7 +11,7 @@ const WhyChooseUs = () => {
             <div className="items">
                 <div className="itemm">
                     <div className="item-card">
-                        <div className="image">
+                        <div claassName="image">
                             <img src={healthcare} alt="healthcare" />
                         </div>
                         <h1 className="text">

@@ -22,11 +22,10 @@
   text-align: center;
   font-size: 24px;
   font-weight: 200;
-  margin: 0;
-  margin-bottom: 50px;
   color: #333;
   max-width: 80%; /* Control how wide the heading text can go */
   margin: 0 auto 10px;
+  margin-bottom: 50px;
   word-wrap: break-word; /* Ensure text wraps */
   white-space: normal; /* Allow text to wrap to new lines */
 }
