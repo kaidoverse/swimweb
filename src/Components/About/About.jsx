@@ -1,13 +1,13 @@
 import React from 'react';
 import './About.css';
-import instructor_11 from '../../assets/instructor-11.png';
+import inst1 from '../../assets/inst1.png';
 import play_icon from '../../assets/play-icon.png';
 
 const About = () => {
     return (
         <div className='about'>
             <div className='about-left'>
-                <img src={instructor_11} alt="" className='about-img' />
+                <img src={inst1} alt="" className='about-img' />
                 <img src={play_icon} alt="" className='play-icon' />
             </div>
 
