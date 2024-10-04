@@ -29,7 +29,6 @@ const App = () => {
         <WhyChooseUs />
 
         <About />
-        {/* <WhyLearn /> */}
 
         <Program />
 

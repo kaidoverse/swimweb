@@ -32,7 +32,7 @@ const About = () => {
                     In addition, we always try to keep our classes small and provide a maximum number of instructors.
                 </p> */}
             </div>
-            <div className="custom-shape-divider-bottom">
+            {/* <div className="custom-shape-divider-bottom">
                 <svg
                     data-name="Layer 1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const About = () => {
                         className="shape-fill"
                     ></path>
                 </svg>
-            </div>
+            </div> */}
         </div>
     );
 };

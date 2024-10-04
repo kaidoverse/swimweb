@@ -164,6 +164,13 @@
 
   .footer p {
     font-size: 14px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer h3:not(:first-of-type) {
+    border-top: 1px solid #ccc; /* Line above the h3 */
+    padding-top: 10px; /* Space between the line and the text */
+    margin-top: 10px; /* Additional margin for spacing */
   }
 
   .footer form input {

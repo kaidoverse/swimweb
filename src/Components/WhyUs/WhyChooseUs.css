@@ -2,7 +2,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  /* height: 50vh; */
   position: relative;
 }
 
@@ -15,23 +14,23 @@
   color: #013b59;
   font-weight: 500;
   font-size: 40px;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow similar to the itemm */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .items {
   display: flex;
-  /* justify-content: center; */
-  align-items: center;
   gap: 20px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  justify-content: center;
 }
 
 .itemm {
-  background-color: #fff; /* White background for the card */
+  background-color: #fff;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   height: 300px;
   text-align: center;
@@ -40,12 +39,11 @@
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* cursor: pointer; */
 }
 
 .itemm:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .itemm .text {
@@ -53,18 +51,66 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 1440px) {
+  .items {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
+  .items {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
   .item-card {
     flex-direction: column;
     align-items: center;
-    /* flex: 1 1 100%; */
   }
 
   .itemm {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
     aspect-ratio: 1;
-    max-width: 300px;
-    max-height: 300px;
+    padding: 15px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .itemm .text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .whychoose {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 10px;
+  }
+
+  .heading {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .items {
+    width: 100%;
+  }
+
+  .itemm {
+    max-width: 250px;
+    padding: 12px;
+  }
+
+  .itemm .text {
+    font-size: 16px;
   }
 }

@@ -124,11 +124,27 @@
 }
 
 @media (max-width: 768px) {
+  .head {
+    display: flex;
+    /* width: 80%; */
+  }
+
   .program {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 7px; */
   }
   .programm {
     flex-basis: 100%;
     margin-bottom: 30px;
+  }
+
+  .head h2 {
+    font-size: 28px;
+  }
+
+  .head p {
+    font-size: 16px;
   }
 }
