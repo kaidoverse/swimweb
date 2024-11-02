@@ -34,20 +34,26 @@
   width: 50px;
   /* height: 50px; */
   /* margin-top: 50px; */
+  margin-left: 80px;
+  margin-right: 80px;
   border-radius: 50%;
   cursor: pointer;
   background: #013b59;
+  /* margin: 0 5px; */
   /* z-index: 10; */
 }
 
-.next-btnn {
-  right: 100px;
+/* .next-btnn {
+  margin-right: 100px;
 }
 
 .back-btnn {
-  /* left: -10px; */
-  /* right: auto; */
-  left: 100px;
+  margin-left: 100px;
+} */
+
+.back-btnn {
+  right: auto;
+  left: 0;
 }
 
 .sliderr {
@@ -97,7 +103,6 @@
 .user-infoo h3 {
   color: #013b59;
   font-size: 20px;
-
   margin: 0;
 }
 
@@ -111,7 +116,7 @@
   overflow-y: auto;
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .instructorr {
     padding: 0 30px;
   }
@@ -147,5 +152,46 @@
   }
   .slidee p {
     font-size: 14px;
+  }
+} */
+
+.sliderr ul li {
+  list-style: none;
+  width: 100%;
+  padding: 20px;
+}
+
+@media (max-width: 2560px) and (min-width: 1440px) {
+  .next-btnn,
+  .back-btnn {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+}
+
+@media (max-width: 1440px) and (min-width: 768px) {
+  .instructorr {
+    padding: 5%;
+  }
+  .sliderr ul {
+    width: 200%;
+  }
+
+  .sliderr ul li {
+    width: 25%;
+  }
+
+  .next-btnn,
+  .back-btnn {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 425px) {
+  .sliderr ul {
+    display: flex;
+    width: 400%;
+    transition: 0.5s;
   }
 }

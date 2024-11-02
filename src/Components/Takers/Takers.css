@@ -1,4 +1,3 @@
-/* Base styles */
 .Takers {
   display: flex;
   flex-direction: column;
@@ -18,10 +17,10 @@
   color: white;
 }
 
-.items {
+.itemsx {
   display: flex;
   justify-content: space-around;
-  align-items: stretch;
+  /* align-items: stretch; */
   width: 100%;
   max-width: 1200px;
 }
@@ -73,7 +72,7 @@
   fill: #ffffff; 
 } */
 
-/* @media (min-width: 2560px) {
+@media (min-width: 2560px) {
   .heading-0 {
     font-size: 50px;
     margin-bottom: 60px;
@@ -109,9 +108,9 @@
     margin-bottom: 40px;
   }
 
-  .items {
-    flex-direction: column;
-    align-items: center;
+  .itemsx {
+    flex-direction: row;
+    align-items: stretch;
   }
 
   .image {
@@ -123,7 +122,7 @@
   }
 
   .image p {
-    font-size: 0.9rem;
+    font-size: 17px;
     line-height: 22px;
   }
 }
@@ -132,6 +131,11 @@
   .heading-0 {
     font-size: 30px;
     margin-bottom: 30px;
+  }
+
+  .itemsx {
+    flex-direction: column;
+    align-items: center;
   }
 
   .image {
@@ -143,47 +147,95 @@
   }
 
   .image p {
-    font-size: 0.85rem;
+    font-size: 17px;
     line-height: 20px;
   }
 }
 
 @media (max-width: 425px) and (min-width: 375px) {
   .heading-0 {
-    font-size: 28px;
-    margin-bottom: 25px;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .itemsx {
+    flex-direction: column;
+    align-items: center;
   }
 
   .image {
-    max-width: 95%;
+    max-width: 60%;
   }
 
   .image h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .image p {
-    font-size: 0.8rem;
-    line-height: 18px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 375px) and (min-width: 320px) {
+  .heading-0 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .itemsx {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image {
+    max-width: 25%;
+  }
+
+  .image h1 {
+    font-size: 16px;
+  }
+
+  .image p {
+    font-size: 16px;
+    line-height: 10px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 320px) and (min-width: 100px) {
   .heading-0 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .itemsx {
+    flex-direction: column;
+    align-items: center;
   }
 
   .image {
-    max-width: 100%;
+    max-width: 25%;
   }
 
   .image h1 {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .image p {
-    font-size: 0.75rem;
-    line-height: 16px;
+    font-size: 16px;
+    line-height: 10px;
+    overflow: hidden;
+  }
+}
+
+/* @media screen and (max-width: 425px) {
+  .Takers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .itemsx {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 } */

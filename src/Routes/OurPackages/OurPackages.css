@@ -109,6 +109,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  /* margin: 0 50px; */
 }
 
 .cta-button:hover {
@@ -119,5 +120,11 @@
   .pricing-cards {
     flex-direction: column;
     /* flex: 1 1 100%; */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .pricing-container h3 {
+    font-size: 16px;
   }
 }

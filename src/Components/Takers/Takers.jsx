@@ -8,7 +8,7 @@ const Takers = () => {
     return (
         <div className="Takers">
             <h1 className="heading-0"> Why Choose Us?</h1>
-            <div className="items">
+            <div className="itemsx">
                 <div className="image">
                     <img src={difference} alt="healthcare" />
                     <h1>Safety-Centric Approach</h1>
@@ -21,7 +21,7 @@ const Takers = () => {
                 </div>
                 <div className="image">
                     <img src={watericon} alt="healthcare" />
-                    <h1>Qualified & Caring Instructors</h1>
+                    <h1>Qualified and Caring Instructors</h1>
                     <p>Our network of swim instructors are dedicated to nurturing and supporting students’ progress.</p>
                 </div>
             </div>

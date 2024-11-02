@@ -29,7 +29,8 @@ const App = () => {
         <WhyChooseUs />
 
         <About />
-
+        <Takers />
+        <Achievement />
         <Program />
 
         {/* <TestimonialCarousel /> */}
@@ -42,8 +43,7 @@ const App = () => {
         {/* <Title subTitle='FIND OUT MORE' /> */}
 
         {/* <Title title='why choose us?' /> */}
-        <Takers />
-        <Achievement />
+
         {/* <Instructor /> */}
         <Testimonials />
         <MeetTeam />
