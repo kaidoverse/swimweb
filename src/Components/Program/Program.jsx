@@ -10,25 +10,25 @@ import backstroke from '../../assets/backstroke.png';
 const Program = () => {
     const programs = [
         {
-            name: 'Breaststroke',
+            name: 'Recommended',
             image: breaststroke,
             // icon: breaststrokeIcon,
-            price: '₵700',
-            description: 'Master the frog kick and wave-like body motion'
+
+            description: 'Recommended starting point for beginners'
         },
         {
-            name: 'Freestyle',
+            name: 'Packages',
             image: freestyle,
             // icon: freestyleIcon,
-            price: '₵1000',
-            description: 'Learn the fastest and most efficient swimming stroke'
+
+            description: 'Build your own personalized package'
         },
         {
-            name: 'Backstroke',
+            name: 'Membership',
             image: backstroke,
             // icon: backstrokeIcon,
-            price: '₵900',
-            description: 'Perfect your balance and back-lying position'
+
+            description: 'Long term swimming commitment'
         },
     ];
 
@@ -37,9 +37,11 @@ const Program = () => {
     }
 
     return (
-        <div className='head '>
+        <div className='head'>
             <h2>Our Swimming Programs</h2>
-            <p>Choose a style and start your journey with our experienced instructors.</p>
+            <p>Come discover the world of swimming lessons with SWA We make learning to swim fun and exciting. Everyone is welcome to join, whether you’re a beginner or an advanced swimmer. Our swim school is full of energy and ready to meet your needs.
+
+            </p>
             <div className='program'>
                 {programs.map((program, index) => (
                     <div key={index} className='programm'>
@@ -50,7 +52,7 @@ const Program = () => {
                         </div>
                         <div className='pricing-info'>
                             <h3>{program.name}</h3>
-                            <p className='price'>{program.price}</p>
+                            {/* <p className='price'>{program.price}</p> */}
                             <p className='description'>{program.description}</p>
                             <button className='enroll-btn' onClick={() => handleEnroll(program.name)}>Enroll Now</button>
                         </div>

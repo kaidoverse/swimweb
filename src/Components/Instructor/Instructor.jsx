@@ -1,106 +1,78 @@
-import { React, useRef } from 'react'
-import './Instructor.css'
-import next_iconn from '../../assets/next-iconn.png'
-import back_iconn from '../../assets/back-iconn.png'
-import user_1 from '../../assets/user-1.png'
-import user_2 from '../../assets/user-2.png'
-import user_3 from '../../assets/user-3.png'
-import user_4 from '../../assets/user-4.png'
+import React, { useState } from "react";
+import "./Instructor.css";
 
-const Testimonials = () => {
+export default function App() {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    const slider = useRef();
-    let tx = 0;
+    const testimonials = [
+        {
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, voluptas nostrum quisquam!",
+            img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
+            name: "Anna Morian",
+        },
+        {
+            text: "Neque cupiditate assumenda in maiores repudiandae mollitia adipisci maiores repudiandae mollitia consectetur adipisicing architecto elit sed adipiscing elit.",
+            img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp",
+            name: "Teresa May",
+        },
+        {
+            text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur est laborum neque cupiditate assumenda in maiores.",
+            img: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp",
+            name: "Kate Allise",
+        },
+    ];
 
-    const slideForward = () => {
-        if (tx > -50) {
-            tx -= 25;
+    const handleNext = () => {
+        // Only increment if not on the last card
+        if (currentIndex < testimonials.length - 1) {
+            setCurrentIndex((prevIndex) => prevIndex + 1);
         }
-        slider.current.style.transform = `translateX(${tx}%)`
-    }
-    const slideBackward = () => {
-        if (tx < 0) {
-            tx += 25;
-        }
-        slider.current.style.transform = `translateX(${tx}%)`
+    };
 
-    }
+    const handlePrev = () => {
+        // Only decrement if not on the first card
+        if (currentIndex > 0) {
+            setCurrentIndex((prevIndex) => prevIndex - 1);
+        }
+    };
 
     return (
-        <div className='instructorr' id='instructorr'>
-            <h2 className="instructorr-title">What Our Clients Say</h2>
-            <img src={next_iconn} alt="" className='next-btnn' onClick={slideForward} />
-            <img src={back_iconn} alt="" className='back-btnn' onClick={slideBackward} />
-            <div className="sliderr">
-                <ul ref={slider}>
-                    <li>
-                        <div className="slidee">
-                            <div className="user-infoo">
-                                <img src={user_1} alt="" />
-                                <div>
-                                    <h3>William Jackson</h3>
-                                    <span>Edusity, Usa</span>
-                                </div>
+        <div className="carousel-container">
+            <h1>What our clients say?</h1>
+            <div className="carousel-wrapper">
+                <div
+                    className="carousel"
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                    {testimonials.map((testimonial, index) => (
+                        <div className="carousel-item" key={index}>
+                            <p className="lead">{testimonial.text}</p>
+                            <div className="image-container">
+                                <img
+                                    src={testimonial.img}
+                                    alt="profile"
+                                    className="profile-image"
+                                />
                             </div>
-                            <p>Omg everyone is so nice and great with kids!! The structure, the reward system, the way they teach them.
-                                Sooo glad we didn’t go with another school we tested first and ended up here.
-                                My oldest made great progress even in her first visit.
-                                10/10!!
-                            </p>
+                            <p className="text-muted">- {testimonial.name}</p>
                         </div>
-                    </li>
-                    <li>
-                        <div className="slidee">
-                            <div className="user-infoo">
-                                <img src={user_2} alt="" />
-                                <div>
-                                    <h3>William Jackson</h3>
-                                    <span>Edusity, Usa</span>
-                                </div>
-                            </div>
-                            <p>Omg everyone is so nice and great with kids!! The structure, the reward system, the way they teach them.
-                                Sooo glad we didn’t go with another school we tested first and ended up here.
-                                My oldest made great progress even in her first visit.
-                                10/10!!
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="slidee">
-                            <div className="user-infoo">
-                                <img src={user_3} alt="" />
-                                <div>
-                                    <h3>William Jackson</h3>
-                                    <span>Edusity, Usa</span>
-                                </div>
-                            </div>
-                            <p>Omg everyone is so nice and great with kids!! The structure, the reward system, the way they teach them.
-                                Sooo glad we didn’t go with another school we tested first and ended up here.
-                                My oldest made great progress even in her first visit.
-                                10/10!!
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="slidee">
-                            <div className="user-infoo">
-                                <img src={user_4} alt="" />
-                                <div>
-                                    <h3>William Jackson</h3>
-                                    <span>Edusity, Usa</span>
-                                </div>
-                            </div>
-                            <p>Omg everyone is so nice and great with kids!! The structure, the reward system, the way they teach them.
-                                Sooo glad we didn’t go with another school we tested first and ended up here.
-                                My oldest made great progress even in her first visit.
-                                10/10!!
-                            </p>
-                        </div>
-                    </li>
-                </ul>
+                    ))}
+                </div>
             </div>
+            <button
+                className="carousel-button prev"
+                onClick={handlePrev}
+                disabled={currentIndex === 0} // Disable button when on the first card
+            >
+                &#10094;
+            </button>
+            <button
+                className="carousel-button next"
+                onClick={handleNext}
+                disabled={currentIndex === testimonials.length - 1} // Disable button when on the last card
+            >
+                &#10095;
+            </button>
         </div>
-    )
+    );
 }
-
-export default Testimonials

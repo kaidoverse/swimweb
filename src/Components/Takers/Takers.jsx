@@ -16,8 +16,8 @@ const Takers = () => {
                 </div>
                 <div className="image">
                     <img src={lap_swimmer} alt="healthcare" />
-                    <h1>Customized Learning Experience</h1>
-                    <p>We offer personalized learning plans based on a child's skill level and learning pace</p>
+                    <h1>Custom Learning Experience</h1>
+                    <p>Personalized learning plans based on a child's skill level and learning pace</p>
                 </div>
                 <div className="image">
                     <img src={watericon} alt="healthcare" />
