@@ -16,7 +16,10 @@
 }
 
 .team-members-container {
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  gap: 30px;
 }
 
 .team-members-slider {
@@ -24,10 +27,12 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  flex-wrap: nowrap;
 }
 
 .team-members-slider li {
-  flex: 0 0 33.33%;
+  flex: 0 0 100%;
   padding: 0 15px;
   box-sizing: border-box;
 }
@@ -63,8 +68,8 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .team-members-slider li {
-    flex: 0 0 100%;
+    flex: 0 0 33.33%;
   }
 }
