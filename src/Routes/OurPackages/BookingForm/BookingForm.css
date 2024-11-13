@@ -1,0 +1,68 @@
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.step-one-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.right-column {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.time-slots {
+  display: flex;
+  gap: 10px;
+}
+
+.time-slot {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+
+.time-slot.selected {
+  background-color: #015077;
+  color: #fff;
+}
+
+.service-details,
+.service-summary {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.next-button,
+.book-now-button {
+  background-color: #013b59;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+}
