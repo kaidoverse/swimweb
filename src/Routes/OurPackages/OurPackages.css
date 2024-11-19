@@ -6,8 +6,11 @@
 
 .pricing-container h2 {
   text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: "outfit";
   margin-bottom: 40px;
-  color: #333;
+  color: #013b59;
 }
 
 /* .pricing-container h3 {
@@ -48,9 +51,9 @@
   margin-bottom: 20px;
 }
 
-.pricing-card:hover {
+/* .pricing-card:hover {
   transform: translateY(-5px);
-}
+} */
 
 .card-image {
   width: 100%;
@@ -68,13 +71,13 @@
 
 .pricing-card h3 {
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 10px;
   color: #333;
 }
 
 .price {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
   color: #013b59;
   margin-bottom: 20px;
@@ -102,7 +105,7 @@
 }
 
 .cta-button {
-  background-color: #0077be;
+  background-color: #013b59;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -114,7 +117,7 @@
 }
 
 .cta-button:hover {
-  background-color: #005fa3;
+  background-color: #324f5e;
 }
 
 @media (max-width: 768px) {

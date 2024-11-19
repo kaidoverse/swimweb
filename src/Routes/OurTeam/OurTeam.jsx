@@ -80,8 +80,8 @@ const OurTeam = () => {
                     <h2>Contact Us</h2>
                     <div className="line"></div>
                     <p>Ready to dive in? Contact us to learn more about our programs or to schedule a free assessment.</p>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>Email: info@splashmasters.com</p>
+                    <p>Phone: +233 541 353 040</p>
+                    <p>Email: swa@gmail.com</p>
                     <p>Address: 123 Aqua Lane, Wavetown, WA 98765</p>
                 </section>
             </div>

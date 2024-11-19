@@ -36,10 +36,12 @@
 }
 
 h2 {
-  color: #212ea0;
+  color: #013b59;
   font-size: 30px;
-  line-height: 30px;
+  font-family: Outfit, sans-serif;
+  /* font-size: 40px; */
   font-weight: 500;
+  line-height: 30px;
   /* font-size: 40px; */
 }
 

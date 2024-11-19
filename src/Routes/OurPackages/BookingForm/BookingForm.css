@@ -7,36 +7,66 @@
   padding: 20px;
 }
 
+.package-heading {
+  font-size: 40px;
+  font-weight: 500;
+  font-family: "Outfit", sans-serif;
+  margin-bottom: 20px;
+}
+
+.breaststroke {
+  color: #013b59;
+}
+
+.backstroke {
+  color: #013b59;
+}
+
+.freestyle {
+  color: #013b59;
+}
+
+.butterfly {
+  color: #013b59;
+}
+
+.pregnant-woman {
+  color: #013b59;
+}
+
+.special-need {
+  color: #013b59;
+}
+
 .step-one-container {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.left-column,
+.middle-column,
+.right-column {
+  flex: 1; /* Each section takes equal width */
 }
 
 .left-column {
-  flex: 1;
-  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.right-column {
-  flex: 1;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-input,
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+.middle-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds space between the time slots */
 }
 
 .time-slots {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -52,17 +82,126 @@ select {
   color: #fff;
 }
 
-.service-details,
-.service-summary {
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-details {
   background-color: #f0f8ff;
   padding: 20px;
   border-radius: 5px;
 }
 
-.next-button,
-.book-now-button {
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.next-button {
   background-color: #013b59;
   color: white;
   padding: 12px;
   cursor: pointer;
+}
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.step-one-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligns all children at the top */
+  gap: 20px; /* Adds space between the columns */
+  width: 100%; /* Ensures the container takes up full width */
+}
+
+.left-column,
+.middle-column,
+.right-column {
+  flex: 1; /* Each section takes equal width */
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds space between the calendar and time slots */
+}
+
+.middle-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds space between the time slots */
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.time-slot {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+
+.time-slot.selected {
+  background-color: #015077;
+  color: #fff;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds space between the service details */
+}
+
+.service-details {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.next-button {
+  background-color: #013b59;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background-color: #324f5e;
 }

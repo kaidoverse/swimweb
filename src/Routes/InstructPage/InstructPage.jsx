@@ -11,13 +11,13 @@ const InstructPage = () => {
     const instructors = [
         {
             name: "Zoey",
-            title: "Coach",
-            bio: "Former Olympic swimmer with 15 years of coaching experience. Specializes in advanced techniques and competition training.",
+            title: "Instructor",
+            bio: "Avid swimmer with 15 years of coaching experience. Specializes in advanced techniques and competition training.",
             image: instructor_11
         },
         {
-            name: "Zoey",
-            title: "Coach",
+            name: "Firdaus",
+            title: "Instructor",
             bio: "Certified lifeguard and swim instructor. Expert in teaching water safety and beginner swim lessons for all ages.",
             image: zoey
         },
