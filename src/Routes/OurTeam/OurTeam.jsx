@@ -82,7 +82,9 @@ const OurTeam = () => {
                     <p>Ready to dive in? Contact us to learn more about our programs or to schedule a free assessment.</p>
                     <p>Phone: +233 541 353 040</p>
                     <p>Email: swa@gmail.com</p>
-                    <p>Address: 123 Aqua Lane, Wavetown, WA 98765</p>
+                    <p>Address: AH Hotel and Conference, Boundary Road, Accra, Ghana
+
+                    </p>
                 </section>
             </div>
 

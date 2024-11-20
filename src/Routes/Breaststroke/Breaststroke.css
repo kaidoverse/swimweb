@@ -1,0 +1,58 @@
+.breastroke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 120px auto;
+}
+
+.breastroke h1 {
+  font-size: 40px;
+  font-weight: 500;
+  color: #013b59;
+  font-family: "outfit", sans-serif;
+}
+.breastroke p {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #565e7c;
+}
+.breastroke-items {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #565e7c;
+}
+
+.enroll-btn {
+  margin-top: 30px;
+}
+
+.enroll-btn:hover {
+  background-color: #334e5c;
+}
+
+.btn-line {
+  margin-top: 30px;
+  width: 35%;
+  border: none;
+  border-top: 2px solid #013b59;
+  margin-top: 30px;
+}
+
+h2 {
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+h3,
+h4 {
+  margin-top: 20px;
+  line-height: 1.6;
+  font-size: 18px;
+  font-weight: 400;
+  color: #565e7c;
+}
