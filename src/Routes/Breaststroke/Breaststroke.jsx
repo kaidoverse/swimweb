@@ -1,8 +1,13 @@
 import React from 'react'
 import './Breaststroke.css';
 import Navbar from '../../Components/Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const Breaststroke = () => {
+    const navigate = useNavigate();
+    const handleBooking = () => {
+        navigate('/ourpackages/breaststroke/booking')
+    }
     return (
         <>
             <Navbar />
@@ -15,7 +20,7 @@ const Breaststroke = () => {
                     <div className="location">Boundary road</div>
                     <div className="contact">+233 541 353 040</div>
                 </div>
-                <button className="enroll-btn">book now</button>
+                <button className="enroll-btn" onClick={handleBooking}>book now</button>
                 <hr className="btn-line" />
                 <h2 className="service-des">Service Description</h2>
                 <h3>It is the easiest to learn and most beginner-friendly.</h3>

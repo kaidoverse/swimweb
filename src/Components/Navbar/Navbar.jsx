@@ -18,23 +18,20 @@ const Navbar = () => {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        // Apply scroll-based stickiness only on the home page
+        if (location.pathname === '/') {
+            window.addEventListener('scroll', handleScroll);
+        }
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []); // No dependencies now
-
-
-    useEffect(() => {
-        // Set sticky to true if not on the home page (App.jsx)
+        // Set sticky to true for all other pages
         if (location.pathname !== '/') {
             setSticky(true);
-        } else {
-            // Reset sticky to false when on the home page and at the top
-            setSticky(window.scrollY > 50);
         }
-    }, [location.pathname]);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll); // Clean up
+        };
+    }, [location.pathname]); // Re-run effect when the path changes
 
     const toggleMenu = () => {
         setMobileMenu(!mobileMenu);
@@ -54,6 +51,6 @@ const Navbar = () => {
             <img src={menu_icon} alt="Menu Icon" className='menu-icon' onClick={toggleMenu} />
         </nav>
     );
-}
+};
 
 export default Navbar;
