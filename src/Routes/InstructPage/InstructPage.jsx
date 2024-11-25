@@ -38,7 +38,7 @@ const InstructPage = () => {
     return (
         <>
             <Navbar />
-            <Hero />
+
             <div className="instructors-container">
                 <h1 className="instructors-header">Our Instructors</h1>
                 <p className="instructors-intro">

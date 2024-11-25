@@ -8,7 +8,7 @@ const ClientSays = () => {
     return (
         <>
             <Navbar />
-            <Hero />
+            {/* <Hero /> */}
             <Footer />
         </>
     )

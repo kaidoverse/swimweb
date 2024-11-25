@@ -1,7 +1,7 @@
 .pricing-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 120px auto;
+  /* padding: 40px 20px; */
 }
 
 .pricing-container h2 {
@@ -9,6 +9,7 @@
   font-size: 40px;
   font-weight: 500;
   font-family: "outfit";
+  /* margin-top: 90px; */
   margin-bottom: 40px;
   color: #013b59;
 }

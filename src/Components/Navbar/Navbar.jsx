@@ -10,6 +10,10 @@ const Navbar = () => {
     const location = useLocation();
 
     useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+
         const handleScroll = () => {
             if (window.scrollY > 50) {
                 setSticky(true);
@@ -45,7 +49,7 @@ const Navbar = () => {
                 <li><Link to='/OurPackages'>Program</Link></li>
                 <li><Link to='/OurTeam'>About us</Link></li>
                 <li><Link to='/InstructPage'>Instructors</Link></li>
-                <li><Link to='/ClientSays'>Testimonials</Link></li>
+                {/* <li><Link to='/ClientSays'>Testimonials</Link></li> */}
                 <li><Link to='/ContactUs'><button className='btn'>Contact us</button></Link></li>
             </ul>
             <img src={menu_icon} alt="Menu Icon" className='menu-icon' onClick={toggleMenu} />

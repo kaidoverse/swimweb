@@ -49,7 +49,7 @@ const OurPackages = () => {
     return (
         <>
             <Navbar />
-            <Hero />
+
             <div className="pricing-container">
                 <h2>Our Packages</h2>
                 <div className="pricing-cards">

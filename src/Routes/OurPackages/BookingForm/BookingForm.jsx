@@ -55,7 +55,6 @@ const BookingForm = () => {
     return (
         <>
             <Navbar />
-            <Hero />
             <div className="booking-container">
                 <h2 className={`package-heading ${packageName}`}>{packageName.replace('-', ' ')} Package</h2>
 

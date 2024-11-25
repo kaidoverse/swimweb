@@ -9,6 +9,11 @@
   position: relative;
 }
 
+.Takers h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
 .heading-0 {
   text-align: center;
   font-size: 40px;
@@ -20,7 +25,7 @@
 .itemsx {
   display: flex;
   justify-content: space-around;
-  /* align-items: stretch; */
+  flex-wrap: wrap; /* Allow wrapping of items on smaller screens */
   width: 100%;
   max-width: 1200px;
 }
@@ -29,6 +34,7 @@
   text-align: center;
   margin: 10px;
   max-width: 300px;
+  flex: 1 1 250px; /* Ensure images take up equal space but adjust based on screen size */
 }
 
 .image img {
@@ -51,27 +57,7 @@
   margin-top: auto;
 }
 
-/* .custom-shape-divider-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom svg {
-  position: relative;
-  display: block;
-  width: calc(145% + 1.3px);
-  height: 142px;
-}
-
-.custom-shape-divider-bottom .shape-fill {
-  fill: #ffffff; 
-} */
-
+/* Media Queries for Responsive Design */
 @media (min-width: 2560px) {
   .heading-0 {
     font-size: 50px;
@@ -110,7 +96,7 @@
 
   .itemsx {
     flex-direction: row;
-    align-items: stretch;
+    justify-content: space-between; /* Better space management */
   }
 
   .image {
@@ -176,6 +162,7 @@
     line-height: 20px;
   }
 }
+
 @media (max-width: 375px) and (min-width: 320px) {
   .heading-0 {
     font-size: 20px;
@@ -223,19 +210,6 @@
   .image p {
     font-size: 16px;
     line-height: 10px;
-    overflow: hidden;
+    overflow: hidden; /* Prevent overflowing content */
   }
 }
-
-/* @media screen and (max-width: 425px) {
-  .Takers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .itemsx {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-} */

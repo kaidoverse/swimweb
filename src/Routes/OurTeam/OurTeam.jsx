@@ -11,14 +11,14 @@ const OurTeam = () => {
     return (
         <>
             <Navbar />
-            <Hero />
+
 
 
 
             <div className="about-container">
                 {/* <h1 className="about-header">About Our Swim School</h1> */}
                 <section className="about-section">
-                    <h2>Welcome to Swim With Ama Governor!</h2>
+                    <h2>About US</h2>
                     <div className="line"></div>
                     <p>At SWA, we believe that swimming is not just a skill, it's a life-saving ability and a gateway to a lifetime of aquatic enjoyment. Our passion is to instill confidence, safety, and love for the water in swimmers of all ages and abilities.</p>
                 </section>
