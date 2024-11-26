@@ -7,11 +7,15 @@
   padding: 50px 0;
   text-align: center;
   position: relative;
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling issues */
+  box-sizing: border-box; /* Ensures padding doesn't add extra width */
 }
 
 .Takers h1 {
   font-size: 40px;
   font-weight: 500;
+  margin: 0 auto;
 }
 
 .heading-0 {
@@ -24,17 +28,21 @@
 
 .itemsx {
   display: flex;
+  flex-wrap: wrap; /* Ensures items wrap to the next line on smaller screens */
   justify-content: space-around;
-  flex-wrap: wrap; /* Allow wrapping of items on smaller screens */
   width: 100%;
   max-width: 1200px;
+  gap: 20px; /* Adds consistent spacing between elements */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .image {
   text-align: center;
   margin: 10px;
   max-width: 300px;
-  flex: 1 1 250px; /* Ensure images take up equal space but adjust based on screen size */
+  flex: 1 1 calc(33.33% - 20px); /* Ensures items are flexible and fit properly */
+  box-sizing: border-box;
 }
 
 .image img {
@@ -46,8 +54,8 @@
   font-size: 30px;
   margin-top: 10px;
   color: #fff;
-  white-space: normal;
   font-weight: 700;
+  white-space: normal;
 }
 
 .image p {
@@ -57,54 +65,25 @@
   margin-top: auto;
 }
 
-/* Media Queries for Responsive Design */
-@media (min-width: 2560px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .heading-0 {
-    font-size: 50px;
-    margin-bottom: 60px;
-  }
-
-  .image h1 {
-    font-size: 40px;
-  }
-
-  .image p {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 2560px) and (min-width: 1140px) {
-  .heading-0 {
-    font-size: 45px;
-    margin-bottom: 55px;
-  }
-
-  .image h1 {
-    font-size: 35px;
-  }
-
-  .image p {
-    font-size: 1.05rem;
-  }
-}
-
-@media (max-width: 1140px) and (min-width: 768px) {
-  .heading-0 {
-    font-size: 35px;
-    margin-bottom: 40px;
+    font-size: 30px;
+    margin-bottom: 30px;
   }
 
   .itemsx {
-    flex-direction: row;
-    justify-content: space-between; /* Better space management */
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;
+    gap: 20px; /* Adds spacing between stacked items */
   }
 
   .image {
-    max-width: 80%;
+    max-width: 90%; /* Reduces width for smaller screens */
   }
 
   .image h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .image p {
@@ -113,103 +92,20 @@
   }
 }
 
-@media (max-width: 768px) and (min-width: 425px) {
+@media (max-width: 425px) {
   .heading-0 {
-    font-size: 30px;
-    margin-bottom: 30px;
-  }
-
-  .itemsx {
-    flex-direction: column;
-    align-items: center;
+    font-size: 25px;
   }
 
   .image {
-    max-width: 90%;
+    max-width: 100%; /* Images take full width of the container */
   }
 
   .image h1 {
-    font-size: 24px;
-  }
-
-  .image p {
-    font-size: 17px;
-    line-height: 20px;
-  }
-}
-
-@media (max-width: 425px) and (min-width: 375px) {
-  .heading-0 {
-    font-size: 30px;
-    margin-bottom: 30px;
-  }
-
-  .itemsx {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image {
-    max-width: 60%;
-  }
-
-  .image h1 {
-    font-size: 24px;
-  }
-
-  .image p {
-    font-size: 15px;
-    line-height: 20px;
-  }
-}
-
-@media (max-width: 375px) and (min-width: 320px) {
-  .heading-0 {
     font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .itemsx {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image {
-    max-width: 25%;
-  }
-
-  .image h1 {
-    font-size: 16px;
   }
 
   .image p {
-    font-size: 16px;
-    line-height: 10px;
-  }
-}
-
-@media (max-width: 320px) and (min-width: 100px) {
-  .heading-0 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .itemsx {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image {
-    max-width: 25%;
-  }
-
-  .image h1 {
-    font-size: 16px;
-  }
-
-  .image p {
-    font-size: 16px;
-    line-height: 10px;
-    overflow: hidden; /* Prevent overflowing content */
+    font-size: 14px;
   }
 }

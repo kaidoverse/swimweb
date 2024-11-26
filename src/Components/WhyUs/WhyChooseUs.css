@@ -6,10 +6,12 @@
   margin: 0 auto;
   padding: 40px 20px;
   position: relative;
+  width: 100%; /* Ensure it fits within the viewport */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box;
 }
 
 .heading {
-  /* display: flex; */
   align-items: center;
   justify-content: center;
   margin-top: 20px;
@@ -23,16 +25,13 @@
 
 .itemss {
   display: flex;
+  flex-wrap: wrap; /* Ensure items wrap on smaller screens */
   gap: 20px;
   justify-content: center;
+  width: 100%; /* Ensures container fits inside viewport */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
-
-/* .items {
-  display: flex;
-  gap: 20px; 
-  justify-content: center; 
-  flex-wrap: wrap; 
-} */
 
 .itemm {
   background-color: #fff;
@@ -46,11 +45,10 @@
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 1; /* Allow items to grow and fill space */
+  flex: 1 1 calc(33.33% - 20px); /* Flexible width with consistent gap */
   max-width: 300px; /* Set a maximum width for items */
+  box-sizing: border-box; /* Ensure padding and border don't cause overflow */
 }
-
-/* Other styles remain unchanged */
 
 .itemm:hover {
   transform: translateY(-5px);
@@ -62,31 +60,17 @@
   font-weight: 500;
 }
 
-@media screen and (max-width: 1440px) {
-  .items {
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .whychoose {
-    display: flex;
-    /* flex-direction: row; */
-    align-items: center;
-  }
-
+@media (max-width: 768px) {
   .itemss {
-    display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
     align-items: center;
     gap: 15px;
+    width: 100%; /* Ensure container fits inside viewport */
   }
 
   .itemm {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    aspect-ratio: 1;
+    width: 100%; /* Allow items to fill available space */
+    max-width: 280px; /* Adjust width for smaller screens */
     padding: 15px;
   }
 
@@ -101,11 +85,6 @@
 
 @media (max-width: 425px) {
   .whychoose {
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
-    /* min-height: 100vh; */
     padding: 20px 10px;
   }
 
@@ -114,14 +93,10 @@
     margin-bottom: 30px;
   }
 
-  /* .items {
-    width: 100%;
-  } */
-
-  /* .itemm {
-    max-width: 250px;
+  .itemm {
+    max-width: 100%; /* Allow items to fill container width */
     padding: 12px;
-  } */
+  }
 
   .itemm .text {
     font-size: 16px;

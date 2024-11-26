@@ -22,13 +22,11 @@ const About = ({ setPlayState }) => {
                     Equipped to teach you how to swim in just four days, SWA conducts classes for both
                     children and adults in the field of swimming. Our staff is perfectly trained to help
                     participants overcome the fear of water and master various swimming techniques in a
-                    calm and pleasant atmosphere.
-                </p>
-                <p>
-                    SWA's mission is to instill a lifelong love of swimming and water safety. By creating a
+                    calm and pleasant atmosphere. SWA's mission is to instill a lifelong love of swimming and water safety. By creating a
                     fun and happy learning environment, we ensure that swimmers are excited about lessons
                     and motivated to become safer in the water.
                 </p>
+
             </div>
         </div>
     );
