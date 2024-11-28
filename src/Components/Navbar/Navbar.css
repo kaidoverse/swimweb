@@ -91,7 +91,7 @@ nav ul li {
   }
 } */
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .logo {
     width: 140px;
   }
@@ -99,9 +99,9 @@ nav ul li {
   nav ul li {
     margin: 10px 10px;
   }
-}
+} */
 
-@media (max-width: 840px) {
+@media (max-width: 920px) {
   nav {
     padding: 15px 0;
   }

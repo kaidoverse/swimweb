@@ -1,8 +1,8 @@
 .about-container {
   max-width: 1100px;
   margin: 120px auto;
-  /* padding: 20px; */
   font-family: Outfit, sans-serif;
+  padding: 0 15px; /* Added padding for small screens */
 }
 
 .about-header {
@@ -28,6 +28,7 @@
 
 .about-list {
   padding-left: 20px;
+  list-style-type: disc;
 }
 
 .about-list li {
@@ -36,12 +37,9 @@
 }
 
 .about-section h2 {
-  /* text-align: center; */
   font-size: 40px;
   font-weight: 500;
-  font-family: "outfit";
-  /* margin-top: 90px; */
-  /* margin-bottom: 40px; */
+  font-family: "Outfit", sans-serif;
   color: #013b59;
 }
 
@@ -54,7 +52,7 @@
 }
 
 .about-container p {
-  line-height: 30px;
+  line-height: 1.6;
   color: #565e7c;
 }
 
@@ -73,25 +71,70 @@
 }
 
 .section-image {
-  width: 90%;
+  width: 100%; /* Ensures full width within container */
   height: auto;
   border-radius: 3px;
   margin-top: 10px;
 }
 
 .line {
-  height: 2px; /* Thickness of the line */
-  background-color: #0077be; /* Color of the line */
-  margin: 20px 0; /* Spacing above and below the line */
-  width: 100%; /* Full width */
+  height: 2px;
+  background-color: #0077be;
+  margin: 20px 0;
+  width: 100%;
 }
 
+/* Media Queries for Responsive Design */
+
+/* Small Tablets and Below */
 @media (max-width: 768px) {
   .two-column {
     flex-direction: column;
   }
 
   .two-column .image-container {
-    order: -1;
+    order: -1; /* Moves the image above the content */
+  }
+
+  .about-section h2 {
+    font-size: 32px;
+    text-align: center; /* Center aligns headers for better balance */
+  }
+
+  .about-list li {
+    font-size: 16px;
+  }
+
+  .about-container p {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .about-container {
+    margin: 80px auto;
+    padding: 10px;
+  }
+
+  .about-section h2 {
+    font-size: 28px;
+  }
+
+  .about-list li {
+    font-size: 14px;
+  }
+
+  .about-container p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .section-image {
+    width: 100%; /* Ensure images fit smaller screens */
+  }
+
+  .line {
+    margin: 10px 0; /* Adjust spacing for smaller screens */
   }
 }
