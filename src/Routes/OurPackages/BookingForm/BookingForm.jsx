@@ -1,10 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './BookingForm.css';
 import Navbar from '../../../Components/Navbar/Navbar';
 import Hero from '../../../Components/Hero/Hero';
+
+// Helper function to handle time slot selection
+const TimeSlots = ({ availableTimes, selectedTime, handleTimeChange }) => {
+    return (
+        <div className="time-slots">
+            {availableTimes.map((time, index) => (
+                <button
+                    key={index}
+                    className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
+                    onClick={() => handleTimeChange(time)}
+                >
+                    {time}
+                </button>
+            ))}
+        </div>
+    );
+};
 
 const BookingForm = () => {
     const { packageName } = useParams();
@@ -16,47 +33,56 @@ const BookingForm = () => {
         name: '',
         email: '',
         phone: '',
-        date: '',
+        date: new Date(),
         time: '',
         age: '',
         additionalInfo: '',
     });
 
     const availableTimes = ['9:00 AM', '11:00 AM', '1:00 PM', '3:00 PM', '5:00 PM'];
-    const [selectedTime, setSelectedTime] = useState('');
-    const [selectedDate, setSelectedDate] = useState(new Date());
 
     // Handle input changes
-    const handleChange = (e) => {
+    const handleChange = useCallback((e) => {
         const { name, value } = e.target;
-        setBookingDetails({ ...bookingDetails, [name]: value });
-    };
+        setBookingDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
+    }, []);
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-        setBookingDetails({ ...bookingDetails, date });
-    };
-
-    const handleTimeChange = (time) => {
-        setSelectedTime(time);
-        setBookingDetails({ ...bookingDetails, time });
-    };
+    const handleDateChange = (date) => setBookingDetails({ ...bookingDetails, date });
+    const handleTimeChange = (time) => setBookingDetails({ ...bookingDetails, time });
 
     // Move to the next step
     const handleNext = () => setStep(2);
 
     // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Booking Details:', bookingDetails);
-        navigate('/booking-confirmation');
+        try {
+            console.log('Booking Details:', bookingDetails);
+            navigate('/booking-confirmation');
+        } catch (error) {
+            console.error('Booking failed:', error);
+        }
     };
+
+    // Dynamic class names for package styles
+    const packageClassNames = {
+        breaststroke: "breaststroke",
+        backstroke: "backstroke",
+        freestyle: "freestyle",
+        butterfly: "butterfly",
+        "pregnant-woman": "pregnant-woman",
+        "special-need": "special-need",
+    };
+
+    const formattedDate = bookingDetails.date.toLocaleDateString();
 
     return (
         <>
             <Navbar />
             <div className="booking-container">
-                <h2 className={`package-heading ${packageName}`}>{packageName.replace('-', ' ')} Package</h2>
+                <h2 className={`package-heading ${packageClassNames[packageName]}`}>
+                    {packageName.replace('-', ' ')} Package
+                </h2>
 
                 {step === 1 && (
                     <div className="step-one-container">
@@ -64,23 +90,17 @@ const BookingForm = () => {
                         <div className="left-column">
                             <label>Select Preferred Date</label>
                             <Calendar
-                                value={selectedDate}
+                                value={bookingDetails.date}
                                 onChange={handleDateChange}
                                 minDate={new Date()} // Prevent past dates
                             />
 
                             <label>Select Time</label>
-                            <div className="time-slots">
-                                {availableTimes.map((time, index) => (
-                                    <button
-                                        key={index}
-                                        className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
-                                        onClick={() => handleTimeChange(time)}
-                                    >
-                                        {time}
-                                    </button>
-                                ))}
-                            </div>
+                            <TimeSlots
+                                availableTimes={availableTimes}
+                                selectedTime={bookingDetails.time}
+                                handleTimeChange={handleTimeChange}
+                            />
                         </div>
 
                         {/* Right Column: Service Details */}
@@ -88,8 +108,8 @@ const BookingForm = () => {
                             <div className="service-details">
                                 <label>Service Details</label>
                                 <p><strong>Package:</strong> {packageName.replace('-', ' ')}</p>
-                                <p><strong>Date:</strong> {selectedDate.toLocaleDateString()}</p>
-                                <p><strong>Time:</strong> {selectedTime || 'Not selected'}</p>
+                                <p><strong>Date:</strong> {formattedDate}</p>
+                                <p><strong>Time:</strong> {bookingDetails.time || 'Not selected'}</p>
                                 <input
                                     type="number"
                                     name="age"
@@ -110,9 +130,10 @@ const BookingForm = () => {
                     <div className="step-two-container">
                         {!isLoggedIn ? (
                             <form className="user-details-form" onSubmit={handleSubmit}>
-                                <label>Name</label>
+                                <label htmlFor="name">Name</label>
                                 <input
                                     type="text"
+                                    id="name"
                                     name="name"
                                     placeholder="Your name"
                                     value={bookingDetails.name}
@@ -120,28 +141,33 @@ const BookingForm = () => {
                                     required
                                 />
 
-                                <label>Email</label>
+                                <label htmlFor="email">Email</label>
                                 <input
                                     type="email"
+                                    id="email"
                                     name="email"
                                     placeholder="Your email"
                                     value={bookingDetails.email}
                                     onChange={handleChange}
                                     required
+                                    pattern="^[^@]+@[^@]+\.[^@]+$" // Email validation pattern
                                 />
 
-                                <label>Phone</label>
+                                <label htmlFor="phone">Phone</label>
                                 <input
                                     type="tel"
+                                    id="phone"
                                     name="phone"
                                     placeholder="Your phone number"
                                     value={bookingDetails.phone}
                                     onChange={handleChange}
                                     required
+                                    pattern="^\+?\d{1,4}?[-. ]?(\d{1,3})[-. ]?(\d{1,4})[-. ]?(\d{1,4})$" // Phone number validation
                                 />
 
-                                <label>Additional Information</label>
+                                <label htmlFor="additionalInfo">Additional Information</label>
                                 <textarea
+                                    id="additionalInfo"
                                     name="additionalInfo"
                                     placeholder="Anything we should know?"
                                     value={bookingDetails.additionalInfo}
@@ -169,7 +195,6 @@ const BookingForm = () => {
                 )}
             </div>
         </>
-
     );
 };
 
