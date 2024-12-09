@@ -76,6 +76,10 @@ const BookingForm = () => {
 
     const formattedDate = bookingDetails.date.toLocaleDateString();
 
+    const handleBack = () => {
+        navigate(`/breaststroke`);
+    };
+
     return (
         <>
             <Navbar />
@@ -86,6 +90,11 @@ const BookingForm = () => {
 
                 {step === 1 && (
                     <div className="step-one-container">
+                        {/* Back Button */}
+                        <button className="back-button" onClick={handleBack}>
+                            &#10094; Back
+                        </button>
+
                         {/* Left Column: Date and Time Selection */}
                         <div className="left-column">
                             <label>Select Preferred Date</label>

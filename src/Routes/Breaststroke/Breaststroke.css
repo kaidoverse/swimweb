@@ -1,23 +1,23 @@
-.breastroke {
+.breaststroke {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 120px auto;
 }
 
-.breastroke h1 {
+.breaststroke h1 {
   font-size: 40px;
   font-weight: 500;
   color: #013b59;
   font-family: "outfit", sans-serif;
 }
-.breastroke p {
+.breaststroke p {
   margin-top: 20px;
   font-size: 18px;
   font-weight: 400;
   color: #565e7c;
 }
-.breastroke-items {
+.breaststroke-items {
   display: flex;
   gap: 20px;
   margin-top: 20px;

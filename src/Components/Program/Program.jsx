@@ -12,19 +12,19 @@ const Program = () => {
         {
             name: 'Recommended',
             image: breaststroke,
-            description: 'Recommended starting point for beginners',
+            description: 'Recommended for beginners',
             path: '/breaststroke',
         },
         {
             name: 'Packages',
             image: freestyle,
-            description: 'Build your own personalized package',
+            description: 'Build your own package',
             path: '/OurPackages',
         },
         {
             name: 'Membership',
             image: backstroke,
-            description: 'Long-term swimming commitment',
+            description: 'Long-term commitment',
             path: '/membership',
         },
     ];
@@ -34,16 +34,13 @@ const Program = () => {
     };
 
     return (
-        <div className='head'>
+        <div id="program-section" className='head'>
             <h2>Our Swimming Programs</h2>
-            <p>Come discover the world of swimming lessons with SWA...</p>
+            {/* <p>Come discover the world of swimming lessons with SWA...</p> */}
             <div className='program'>
                 {programs.map((program, index) => (
                     <div key={index} className='programm'>
                         <img src={program.image} alt={`${program.name} swimming technique`} />
-                        {/* <div className='caption'>
-                            <p>{program.name}</p>
-                        </div> */}
                         <div className='pricing-info'>
                             <h3>{program.name}</h3>
                             <p className='description'>{program.description}</p>

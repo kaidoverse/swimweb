@@ -1,43 +1,41 @@
+/* Booking Container */
 .booking-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 900px;
   margin: 80px auto;
-  /* padding: 20px; */
 }
 
+/* Back Button */
+.back-button {
+  position: absolute;
+  top: 189px;
+  left: 100px;
+  background-color: transparent;
+  color: #013b59;
+  font-size: 20px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Package Heading */
 .package-heading {
   font-size: 40px;
   font-weight: 500;
   font-family: "Outfit", sans-serif;
+  color: #013b59;
   margin-bottom: 30px;
 }
 
-.breaststroke {
-  color: #013b59;
-}
-
-.backstroke {
-  color: #013b59;
-}
-
-.freestyle {
-  color: #013b59;
-}
-
-.butterfly {
-  color: #013b59;
-}
-
-.pregnant-woman {
-  color: #013b59;
-}
-
-.special-need {
-  color: #013b59;
-}
-
+/* Columns */
 .step-one-container {
   display: flex;
   justify-content: space-between;
@@ -61,7 +59,7 @@
 .middle-column {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Adds space between the time slots */
+  gap: 20px;
 }
 
 .time-slots {
@@ -88,17 +86,14 @@
   gap: 20px;
 }
 
+/* Service Details */
 .service-details {
   background-color: #f0f8ff;
   padding: 20px;
   border-radius: 5px;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-
+/* Form Inputs */
 input,
 textarea {
   width: 100%;
@@ -107,19 +102,7 @@ textarea {
   border-radius: 5px;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
+/* Next Button */
 .next-button {
   background-color: #013b59;
   color: white;
@@ -133,4 +116,133 @@ textarea {
 
 .next-button:hover {
   background-color: #324f5e;
+}
+
+/* Media Queries */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  /* Adjusting Back Button Position */
+  .back-button {
+    top: 10%; /* Move the button closer to the top */
+    left: 10%; /* Move the button closer to the left */
+    font-size: 16px; /* Reduce font size */
+  }
+
+  /* Package Heading */
+  .package-heading {
+    font-size: 32px; /* Adjust heading font size */
+  }
+
+  /* Change the layout of step-one-container */
+  .step-one-container {
+    flex-direction: column; /* Stack the columns vertically */
+    align-items: center; /* Center all items */
+    gap: 30px; /* Add space between elements */
+  }
+
+  .left-column,
+  .right-column {
+    flex: 1 1 100%; /* Make columns full width */
+  }
+
+  /* Time slots */
+  .time-slots {
+    justify-content: center; /* Center the time slots */
+  }
+
+  .time-slot {
+    width: 45%; /* Make time slots more compact */
+    margin: 5px; /* Add spacing between time slots */
+  }
+
+  /* Service Details */
+  .service-details {
+    width: 100%; /* Make service details full width */
+  }
+
+  /* Next Button */
+  .next-button {
+    width: 100%; /* Make next button full width */
+    padding: 15px; /* Increase padding */
+    font-size: 18px; /* Increase font size */
+  }
+}
+
+/* For screens between 768px and 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .back-button {
+    top: 15%; /* Move slightly down for medium screens */
+    left: 15%; /* Adjust left position */
+    font-size: 18px; /* Slightly smaller font size */
+  }
+
+  .package-heading {
+    font-size: 36px; /* Adjust heading font size */
+  }
+
+  .step-one-container {
+    flex-direction: row; /* Keep columns side by side */
+    gap: 20px;
+  }
+
+  .left-column,
+  .right-column {
+    flex: 1 1 45%; /* Reduce width of each column */
+  }
+
+  .time-slots {
+    flex-wrap: nowrap; /* Keep time slots in a single row */
+  }
+
+  .time-slot {
+    width: 22%; /* Reduce size of time slots */
+    margin: 5px; /* Add spacing */
+  }
+
+  .service-details {
+    width: 100%; /* Service details should take full width */
+  }
+}
+
+/* For large screens (1024px and up) */
+@media (min-width: 1024px) {
+  .back-button {
+    top: 20%; /* Adjust position for larger screens */
+    left: 20%;
+    font-size: 20px; /* Maintain the original font size */
+  }
+
+  .package-heading {
+    font-size: 40px; /* Keep heading size large for desktop */
+  }
+
+  .step-one-container {
+    flex-direction: row; /* Side-by-side layout */
+    gap: 30px; /* Space between columns */
+  }
+
+  .left-column,
+  .right-column {
+    flex: 1 1 45%; /* Keep columns with some space */
+  }
+
+  .time-slots {
+    flex-wrap: wrap; /* Allow time slots to wrap */
+    /* justify-content: space-between; */
+  }
+
+  .time-slot {
+    width: 22%;
+    margin: 10px;
+  }
+
+  .service-details {
+    width: 100%; /* Ensure service details take full width */
+  }
+
+  .next-button {
+    width: auto; /* Keep the next button to its original width */
+    padding: 10px 20px;
+  }
 }

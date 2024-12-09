@@ -1,60 +1,54 @@
-import React, { useState } from 'react'
-import Navbar from './Components/Navbar/Navbar'
-import Hero from './Components/Hero/Hero'
-import Program from './Components/Program/Program'
-import Title from './Components/Title/Title'
-import About from './Components/About/About'
-import Instructor from './Components/Instructor/Instructor'
-// import Changecard from './Components/Changecard/Changecard'
-
-import Achievement from './Components/Achievements/Achievement'
-import Footer from './Components/Footer/Footer'
+import React, { useEffect, useRef, useState } from 'react';
+import Navbar from './Components/Navbar/Navbar';
+import Hero from './Components/Hero/Hero';
+import Program from './Components/Program/Program';
+import About from './Components/About/About';
+import Takers from './Components/Takers/Takers';
+import Achievement from './Components/Achievements/Achievement';
+import Footer from './Components/Footer/Footer';
 import './index.css';
-import ColorChangeCards from './Components/ChangeCard/ColorChangeCards'
-import Gridcard from './Components/gridcard/Gridcard'
-import WhyLearn from './Components/WhyLearn/WhyLearn'
-import TestimonialCarousel from './Components/TestimonialCarousel/TestimonialCarousel'
-import WhyChooseUs from './Components/WhyUs/WhyChooseUs'
-import Testimonials from './Components/Instructor/Instructor'
-import Takers from './Components/Takers/Takers'
-import MeetTeam from './Components/MeetTeam/MeetTeam'
-import Vidplayer from './Components/Vidplayer/Vidplayer'
+import { useLocation } from 'react-router-dom';
+import TestimonialCarousel from './Components/TestimonialCarousel/TestimonialCarousel';
+import WhyLearn from './Components/WhyLearn/WhyLearn';
+import Instructor from './Components/Instructor/Instructor';
+import MeetOurTeam from './Components/MeetTeam/MeetTeam';
+import Vidplayer from './Components/Vidplayer/Vidplayer';
+
 
 const App = () => {
+  const programRef = useRef(null);
+  const location = useLocation();
   const [playState, setPlayState] = useState(false);
+
+
+  useEffect(() => {
+    // Check if the URL has a hash (e.g. '#program-section')
+    if (window.location.hash === '#program-section' && programRef.current) {
+      programRef.current.scrollIntoView();  // Scroll directly to the Program section
+    }
+  }, [location]); // Ensure it checks whenever the location changes
 
   return (
     <div>
       <Navbar />
       <Hero />
-
       <div>
-        <WhyChooseUs />
-
+        <WhyLearn />
         <About setPlayState={setPlayState} />
         <Takers />
         <Achievement />
-        <Program />
-
-        {/* <TestimonialCarousel /> */}
-
-        {/* <Gridcard /> */}
-
-
-        {/* <Title subTitle='Our Programs' title='what we offer' /> */}
-
-        {/* <Title subTitle='FIND OUT MORE' /> */}
-
-        {/* <Title title='why choose us?' /> */}
-
-        {/* <Instructor /> */}
-        <Testimonials />
-        <MeetTeam />
+        {/* Ref added here for Program section */}
+        <div id="program-section" ref={programRef}>
+          <Program />
+        </div>
+        <Instructor />
+        <MeetOurTeam />
         <Footer />
       </div>
       <Vidplayer playState={playState} setPlayState={setPlayState} />
-    </div>
-  )
-}
 
-export default App
+    </div>
+  );
+};
+
+export default App;
