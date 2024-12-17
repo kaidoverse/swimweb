@@ -1,65 +1,41 @@
-/* Booking Container */
+/* General Container */
 .booking-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 900px;
-  margin: 80px auto;
-}
-
-/* Back Button */
-.back-button {
-  position: absolute;
-  top: 189px;
-  left: 100px;
-  background-color: transparent;
-  color: #013b59;
-  font-size: 20px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-  background-color: #f0f0f0;
-  border-radius: 5px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
 }
 
 /* Package Heading */
 .package-heading {
-  font-size: 40px;
-  font-weight: 500;
-  font-family: "Outfit", sans-serif;
-  color: #013b59;
-  margin-bottom: 30px;
+  text-align: center;
+  padding-top: 50px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: #333;
 }
 
-/* Columns */
+/* Step One Styles */
 .step-one-container {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
 }
 
-.left-column,
-.middle-column,
-.right-column {
-  flex: 1; /* Each section takes equal width */
-}
-
+/* Left Column */
 .left-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex: 1;
+  min-width: 300px;
 }
 
-.middle-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.left-column label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .time-slots {
@@ -69,180 +45,123 @@
 }
 
 .time-slot {
-  padding: 10px;
-  cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
 }
 
 .time-slot.selected {
-  background-color: #015077;
+  background-color: #007bff;
   color: #fff;
+  border-color: #0056b3;
 }
 
+/* Right Column */
 .right-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex: 1;
+  min-width: 300px;
 }
 
-/* Service Details */
 .service-details {
   background-color: #f0f8ff;
-  padding: 20px;
+  padding: 15px;
   border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Form Inputs */
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
-/* Next Button */
 .next-button {
-  background-color: #013b59;
-  color: white;
-  font-size: 16px;
+  display: block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 .next-button:hover {
-  background-color: #324f5e;
+  background-color: #218838;
 }
 
-/* Media Queries */
+/* Step Two Styles */
+.step-two-container .form-and-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
 
-/* For screens smaller than 768px */
+/* User Details Form */
+.user-details-form {
+  flex: 2;
+  max-width: 60%;
+}
+
+.user-details-form input,
+.user-details-form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Service Summary */
+.service-summary {
+  flex: 1;
+  max-width: 35%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Back Button */
+.back-button {
+  position: absolute;
+  top: 150px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  /* font-size: 1.5rem; */
+  margin-bottom: 20px;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-  /* Adjusting Back Button Position */
-  .back-button {
-    top: 10%; /* Move the button closer to the top */
-    left: 10%; /* Move the button closer to the left */
-    font-size: 16px; /* Reduce font size */
-  }
-
-  /* Package Heading */
-  .package-heading {
-    font-size: 32px; /* Adjust heading font size */
-  }
-
-  /* Change the layout of step-one-container */
-  .step-one-container {
-    flex-direction: column; /* Stack the columns vertically */
-    align-items: center; /* Center all items */
-    gap: 30px; /* Add space between elements */
+  .step-one-container,
+  .step-two-container .form-and-summary {
+    flex-direction: column;
   }
 
   .left-column,
-  .right-column {
-    flex: 1 1 100%; /* Make columns full width */
+  .right-column,
+  .user-details-form,
+  .service-summary {
+    max-width: 100%;
   }
 
-  /* Time slots */
-  .time-slots {
-    justify-content: center; /* Center the time slots */
-  }
-
-  .time-slot {
-    width: 45%; /* Make time slots more compact */
-    margin: 5px; /* Add spacing between time slots */
-  }
-
-  /* Service Details */
-  .service-details {
-    width: 100%; /* Make service details full width */
-  }
-
-  /* Next Button */
-  .next-button {
-    width: 100%; /* Make next button full width */
-    padding: 15px; /* Increase padding */
-    font-size: 18px; /* Increase font size */
-  }
-}
-
-/* For screens between 768px and 1024px */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .back-button {
-    top: 15%; /* Move slightly down for medium screens */
-    left: 15%; /* Adjust left position */
-    font-size: 18px; /* Slightly smaller font size */
-  }
-
-  .package-heading {
-    font-size: 36px; /* Adjust heading font size */
-  }
-
-  .step-one-container {
-    flex-direction: row; /* Keep columns side by side */
-    gap: 20px;
-  }
-
-  .left-column,
-  .right-column {
-    flex: 1 1 45%; /* Reduce width of each column */
-  }
-
-  .time-slots {
-    flex-wrap: nowrap; /* Keep time slots in a single row */
-  }
-
-  .time-slot {
-    width: 22%; /* Reduce size of time slots */
-    margin: 5px; /* Add spacing */
-  }
-
-  .service-details {
-    width: 100%; /* Service details should take full width */
-  }
-}
-
-/* For large screens (1024px and up) */
-@media (min-width: 1024px) {
-  .back-button {
-    top: 20%; /* Adjust position for larger screens */
-    left: 20%;
-    font-size: 20px; /* Maintain the original font size */
-  }
-
-  .package-heading {
-    font-size: 40px; /* Keep heading size large for desktop */
-  }
-
-  .step-one-container {
-    flex-direction: row; /* Side-by-side layout */
-    gap: 30px; /* Space between columns */
-  }
-
-  .left-column,
-  .right-column {
-    flex: 1 1 45%; /* Keep columns with some space */
-  }
-
-  .time-slots {
-    flex-wrap: wrap; /* Allow time slots to wrap */
-    /* justify-content: space-between; */
-  }
-
-  .time-slot {
-    width: 22%;
-    margin: 10px;
-  }
-
-  .service-details {
-    width: 100%; /* Ensure service details take full width */
-  }
-
-  .next-button {
-    width: auto; /* Keep the next button to its original width */
-    padding: 10px 20px;
+  .service-summary {
+    margin-top: 20px;
   }
 }

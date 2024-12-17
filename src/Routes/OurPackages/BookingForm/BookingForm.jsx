@@ -58,7 +58,7 @@ const BookingForm = () => {
         e.preventDefault();
         try {
             console.log('Booking Details:', bookingDetails);
-            navigate('/booking-confirmation');
+            navigate(`/OurPackages/${packageName}/bookingconfirmation`); // Navigate to Booking Confirmation
         } catch (error) {
             console.error('Booking failed:', error);
         }
@@ -77,7 +77,7 @@ const BookingForm = () => {
     const formattedDate = bookingDetails.date.toLocaleDateString();
 
     const handleBack = () => {
-        navigate(`/breaststroke`);
+        navigate(-1);
     };
 
     return (
@@ -187,6 +187,8 @@ const BookingForm = () => {
                                     <h3>Confirm Booking</h3>
                                     <p><strong>Package:</strong> {packageName.replace('-', ' ')}</p>
                                     <p><strong>Price:</strong> ₵1200</p>
+                                    <p><strong>Date:</strong> {formattedDate}</p>
+                                    <p><strong>Time:</strong>{bookingDetails.time || 'Not selected'}</p>
                                     <button type="submit" className="book-now-button">
                                         Book Now
                                     </button>
