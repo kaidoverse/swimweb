@@ -5,7 +5,7 @@
   text-align: center; /* Center the heading text */
   padding: 20px;
   background-color: #ffffff;
-  height: 60vh;
+  min-height: 60vh;
   position: relative;
 }
 
@@ -23,6 +23,7 @@
   justify-content: center; /* Center items horizontally */
   align-items: center;
   gap: 20px; /* Space between items */
+  flex-wrap: wrap;
 }
 
 .itemm {
@@ -47,4 +48,17 @@
 .itemm .text {
   font-size: 20px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .itemm {
+    width: 90%;
+    height: auto;
+  }
 }
