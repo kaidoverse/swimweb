@@ -1,0 +1,24 @@
+/* BookingConfirmation.css */
+.confirmation-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.confirmation-container h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.payment-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  border-radius: 5px;
+}
+
+.payment-button:hover {
+  background-color: #0056b3;
+}
