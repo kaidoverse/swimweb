@@ -10,9 +10,7 @@ const Navbar = () => {
     const location = useLocation();
 
     useEffect(() => {
-
         window.scrollTo(0, 0);
-
 
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -43,16 +41,39 @@ const Navbar = () => {
 
     return (
         <nav className={`containerr ${sticky ? 'dark-nav' : ''}`}>
-            <img src={swam_logo} alt="Logo" className='Swaglogo12' />
-            <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/OurPackages'>Program</Link></li>
-                <li><Link to='/OurTeam'>About us</Link></li>
-                <li><Link to='/InstructPage'>Instructors</Link></li>
-                {/* <li><Link to='/ClientSays'>Testimonials</Link></li> */}
-                <li><Link to='/ContactUs'><button className='btn'>Contact us</button></Link></li>
+            <img src={swam_logo} alt="Logo" className="Swaglogo12" />
+            {mobileMenu}
+            <ul className={mobileMenu ? 'mobile-menu-open' : ''}>
+                <li>
+                    <Link to="/" onClick={() => setMobileMenu(false)}>
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/OurPackages" onClick={() => setMobileMenu(false)}>
+                        Program
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/OurTeam" onClick={() => setMobileMenu(false)}>
+                        About us
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/InstructPage" onClick={() => setMobileMenu(false)}>
+                        Instructors
+                    </Link>
+                </li>
+                <li>
+                    <button className="bbtn">Contact us</button>
+                </li>
             </ul>
-            <img src={menu_icon} alt="Menu Icon" className='menu-icon' onClick={toggleMenu} />
+            <img
+                src={menu_icon}
+                alt="Menu Icon"
+                className="menu-icon"
+                onClick={toggleMenu}
+            />
         </nav>
     );
 };
