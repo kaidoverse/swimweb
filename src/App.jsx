@@ -36,7 +36,7 @@ const App = () => {
         <WhyLearn />
         <About setPlayState={setPlayState} />
         <Takers />
-        <Achievement />
+        {/* <Achievement /> */}
         {/* Ref added here for Program section */}
         <div id="program-section" ref={programRef}>
           <Program />

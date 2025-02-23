@@ -75,6 +75,7 @@
   position: relative;
   z-index: 3;
   text-align: center;
+  margin-top: 100px;
   max-width: 800px;
   color: #fff;
   padding-top: 250px;
@@ -91,10 +92,10 @@
   line-height: 1.4;
 }
 
-.btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
+.hero-text .btn {
+  background-color: #eff2f4;
+  color: #013b59;
+  border-radius: 5px;
   padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;

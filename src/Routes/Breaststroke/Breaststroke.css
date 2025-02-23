@@ -1,22 +1,56 @@
-.breaststroke {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 120px auto;
+/* General Container */
+.breaststrokee {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center; /* Center-align all text */
 }
 
-.breaststroke h1 {
-  font-size: 40px;
-  font-weight: 500;
-  color: #013b59;
-  font-family: "outfit", sans-serif;
+/* Back Button and Heading Container */
+.back-and-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
 }
-.breaststroke p {
+
+/* Responsive Back Button */
+.responsive-back-button {
+  background-color: #013b59;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.responsive-back-button:hover {
+  background-color: #334e5c; /* Hover effect */
+}
+
+/* Package Heading */
+.package-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: "Outfit", sans-serif;
+  color: #013b59;
+  flex-grow: 1; /* Allow heading to take remaining space */
+}
+
+.breaststrokee p {
   margin-top: 20px;
   font-size: 18px;
   font-weight: 400;
   color: #565e7c;
 }
+
 .breaststroke-items {
   display: flex;
   gap: 20px;
@@ -24,22 +58,31 @@
   font-size: 18px;
   font-weight: 400;
   color: #565e7c;
+  justify-content: center; /* Center the items horizontally */
 }
 
 .enroll-btn {
   margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #013b59;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .enroll-btn:hover {
   background-color: #334e5c;
 }
 
+/* Horizontal Line Styling */
 .btn-line {
-  margin-top: 30px;
-  width: 35%;
+  margin: 30px auto; /* Center the line horizontally */
+  width: 35%; /* Adjust the width of the line */
   border: none;
-  border-top: 2px solid #013b59;
-  margin-top: 30px;
+  border-top: 2px solid #013b59; /* Style the line */
 }
 
 h2 {
@@ -55,4 +98,45 @@ h4 {
   font-size: 18px;
   font-weight: 400;
   color: #565e7c;
+}
+
+.contact-items {
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .breaststrokee {
+    margin: 80px auto; /* Reduce margin for smaller screens */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .back-and-heading {
+    flex-direction: row; /* Keep items in a row */
+    align-items: center; /* Vertically align items */
+    justify-content: flex-start; /* Align content to the left */
+    gap: 10px; /* Space between button and heading */
+  }
+
+  .package-heading {
+    font-size: 1.5rem; /* Smaller font size for smaller screens */
+    text-align: center; /* Center the heading */
+    flex-grow: 1; /* Allow heading to take remaining space */
+  }
+
+  .responsive-back-button {
+    padding: 8px 12px; /* Slightly smaller padding */
+    font-size: 0.9rem; /* Smaller font size */
+    margin-right: 0; /* Remove margin */
+  }
+
+  .breaststroke-items {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    gap: 10px; /* Reduce gap for smaller screens */
+    font-size: 1rem; /* Smaller font size for smaller screens */
+  }
+
+  .btn-line {
+    width: 80%; /* Increase width for smaller screens */
+  }
 }

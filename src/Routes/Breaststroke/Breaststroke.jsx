@@ -18,11 +18,13 @@ const Breaststroke = () => {
     return (
         <>
             <Navbar />
-            <div className="breaststroke">
-                <button className="back-button" onClick={handleBack}>
-                    &#10094; Back
-                </button>
-                <h1>Breaststroke</h1>
+            <div className="breaststrokee">
+                <div className="back-and-heading">
+                    <button className="responsive-back-button" onClick={handleBack}>
+                        &#10094; Back
+                    </button>
+                    <h1 className="package-heading">Breaststroke</h1>
+                </div>
                 <p>Learn breaststroke in 4 to 7 days</p>
                 <div className="breaststroke-items">
                     <div className="duration">2 hr</div>

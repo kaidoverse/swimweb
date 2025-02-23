@@ -1,8 +1,7 @@
-/* General Navbar Styles */
 nav {
   width: 100%;
   color: #fff;
-  padding: 15px 0; /* Increased padding to make the navbar taller */
+  padding: 15px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -89,6 +88,10 @@ nav ul li a:hover {
     display: block; /* Show menu icon */
     width: 30px;
     cursor: pointer;
+    position: fixed; /* Position the icon fixed */
+    top: 20px; /* Adjust top position */
+    right: 20px; /* Adjust right position */
+    z-index: 101; /* Ensure the icon is above the mobile menu */
   }
 
   /* Mobile Menu Open State */
@@ -96,14 +99,14 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 80px; /* Adjusted to match the taller navbar */
+    top: 0; /* Cover the entire screen from the top */
     left: 0;
     right: 0;
     bottom: 0;
     background: #013b59;
     width: 100%;
-    height: calc(100vh - 80px); /* Cover the entire screen below the navbar */
-    padding: 20px 0;
+    height: 100vh; /* Cover the entire viewport height */
+    padding: 80px 0 20px;
     z-index: 99;
     overflow-y: auto; /* Allow scrolling if the menu is too long */
     animation: slideDown 0.3s ease-in-out; /* Dropdown animation */
@@ -125,4 +128,15 @@ nav ul li a:hover {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* Overlay for Mobile Menu */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
 }

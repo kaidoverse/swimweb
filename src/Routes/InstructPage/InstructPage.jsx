@@ -12,13 +12,13 @@ const InstructPage = () => {
         {
             name: "Zoey",
             title: "Instructor",
-            bio: "Avid swimmer with 15 years of coaching experience. Specializes in advanced techniques and competition training.",
+            bio: "Avid swimmer with 3+ years of coaching experience. Specializes in advanced techniques and competition training.",
             image: instructor_11
         },
         {
             name: "Firdaus",
             title: "Instructor",
-            bio: "Certified lifeguard and swim instructor. Expert in teaching water safety and beginner swim lessons for all ages.",
+            bio: "Expert in teaching water safety and beginner swim lessons for all ages.",
             image: zoey
         },
         // {
