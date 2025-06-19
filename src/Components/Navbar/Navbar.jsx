@@ -25,7 +25,9 @@ const Navbar = () => {
         }
 
         // Set sticky to true for all other pages
-        if (location.pathname !== '/') {
+        if (location.pathname === '/') {
+            window.addEventListener('scroll', handleScroll);
+        } else {
             setSticky(true);
         }
 
@@ -34,36 +36,53 @@ const Navbar = () => {
         };
     }, [location.pathname]); // Re-run effect when the path changes
 
+    // Close mobile menu on window resize (desktop view)
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setMobileMenu(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const toggleMenu = () => {
         setMobileMenu(!mobileMenu);
+    };
+
+    const handleLinkClick = () => {
+        // Always close mobile menu when a link is clicked
+        setMobileMenu(false);
     };
 
     return (
         <nav className={`containerr ${sticky ? 'dark-nav' : ''}`}>
             <img src={swam_logo} alt="Logo" className="Swaglogo12" />
-            {/* Overlay for mobile menu */}
+            {/* Overlay for mobile menu - only show when mobile menu is open */}
             {mobileMenu && (
                 <div className="mobile-menu-overlay" onClick={toggleMenu}></div>
             )}
             {/* Mobile menu */}
             <ul className={mobileMenu ? 'mobile-menu-open' : ''}>
                 <li>
-                    <Link to="/" onClick={toggleMenu}>
+                    <Link to="/" onClick={handleLinkClick}>
                         Home
                     </Link>
                 </li>
                 <li>
-                    <Link to="/OurPackages" onClick={toggleMenu}>
+                    <Link to="/OurPackages" onClick={handleLinkClick}>
                         Program
                     </Link>
                 </li>
                 <li>
-                    <Link to="/OurTeam" onClick={toggleMenu}>
+                    <Link to="/OurTeam" onClick={handleLinkClick}>
                         About us
                     </Link>
                 </li>
                 <li>
-                    <Link to="/InstructPage" onClick={toggleMenu}>
+                    <Link to="/InstructPage" onClick={handleLinkClick}>
                         Instructors
                     </Link>
                 </li>
