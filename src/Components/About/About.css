@@ -1,11 +1,35 @@
-.about {
+/* .about {
   background-color: #f6f6f6;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
   padding: 5% 10%;
-  gap: 2rem; /* Space between image and text */
+  gap: 2rem;
+} */
+
+.about {
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 10%;
+  gap: 2rem;
+  /* opacity: 1; */
+  /* transform: translateY(0); */
+  opacity: 0;
+  transform: translateY(8rem);
+  transition: transform 1s ease, opacity 1s ease;
+}
+/* .about {
+  opacity: 0;
+  transform: translateY(8rem);
+  transition: transform 1s ease, opacity 1s ease;
+} */
+
+.about.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-left {

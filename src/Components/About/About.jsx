@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './About.css';
 import inst1 from '../../assets/inst1.png';
 import play_icon from '../../assets/play-icon.png';
 
 const About = ({ setPlayState }) => {
+    const aboutRef = useRef();
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (aboutRef.current) {
+            observer.observe(aboutRef.current);
+        }
+    }, []);
+
     return (
-        <div className="about">
+        <div
+            ref={aboutRef}
+            className={`about ${isVisible ? 'visible' : ''}`}
+        >
             <div className="about-left">
                 <img src={inst1} alt="Instructor teaching swimming" className="about-img" />
                 <img
@@ -26,7 +48,6 @@ const About = ({ setPlayState }) => {
                     fun and happy learning environment, we ensure that swimmers are excited about lessons
                     and motivated to become safer in the water.
                 </p>
-
             </div>
         </div>
     );
