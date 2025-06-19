@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./Instructor.css";
 
 export default function App() {
@@ -19,61 +19,81 @@ export default function App() {
         },
     ];
 
-    // Function to handle "Next" button click
-    const handleNext = () => {
-        if (currentIndex < testimonials.length - 1) {
-            setCurrentIndex((prevIndex) => prevIndex + 1);
-        }
+    const maxIndex = testimonials.length - 1;
+
+    const handleNext = useCallback(() => {
+        setCurrentIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+    }, [maxIndex]);
+
+    const handlePrev = useCallback(() => {
+        setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+    }, [maxIndex]);
+
+    const handleDotClick = (index) => {
+        setCurrentIndex(index);
     };
 
-    // Function to handle "Prev" button click
-    const handlePrev = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex((prevIndex) => prevIndex - 1);
-        }
-    };
-
-    // Auto-advance through testimonials every 10 seconds
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-        }, 10000); // Change testimonial every 10 seconds
+            handleNext();
+        }, 10000);
+        return () => clearInterval(intervalId);
+    }, [handleNext]);
 
-        return () => {
-            clearInterval(intervalId); // Cleanup interval when component is unmounted
+    useEffect(() => {
+        const handleKey = (e) => {
+            if (e.key === "ArrowLeft") handlePrev();
+            if (e.key === "ArrowRight") handleNext();
         };
-    }, [testimonials.length]); // Effect will run on mount or when `testimonials.length` changes
+
+        window.addEventListener("keydown", handleKey);
+        return () => window.removeEventListener("keydown", handleKey);
+    }, [handleNext, handlePrev]);
 
     return (
         <div className="carousel-container">
             <h1>What our clients say?</h1>
+
             <div className="carousel-wrapper">
                 <div
                     className="carousel"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    style={{
+                        transform: `translateX(-${currentIndex * 100}%)`,
+                    }}
                 >
                     {testimonials.map((testimonial, index) => (
-                        <div className="carousel-item" key={index}>
-                            <p className="lead">{testimonial.text}</p>
-                            <p className="text-muted">- {testimonial.name}</p>
+                        <div
+                            className="carousel-item"
+                            key={index}
+                            style={{
+                                width: '100%',
+                            }}
+                        >
+                            <p className="lead">"{testimonial.text}"</p>
+                            <div className="image-container">
+                                <p className="text-muted">- {testimonial.name}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
-            <button
-                className="carousel-button prev"
-                onClick={handlePrev}
-                disabled={currentIndex === 0}
-            >
-                &#10094;
+
+            <button className="carousel-button prev" onClick={handlePrev}>
+                ❮
             </button>
-            <button
-                className="carousel-button next"
-                onClick={handleNext}
-                disabled={currentIndex === testimonials.length - 1}
-            >
-                &#10095;
+            <button className="carousel-button next" onClick={handleNext}>
+                ❯
             </button>
+
+            <div className="dots">
+                {testimonials.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`dots__dot ${index === currentIndex ? 'dots__dot--active' : ''}`}
+                        onClick={() => handleDotClick(index)}
+                    ></button>
+                ))}
+            </div>
         </div>
     );
 }
