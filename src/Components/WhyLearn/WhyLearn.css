@@ -26,6 +26,20 @@
   flex-wrap: wrap;
 }
 
+.section {
+  /* padding: 15rem 3rem; */
+  border-top: 1px solid #ddd;
+
+  transition: transform 1s, opacity 1s;
+}
+.whylearn-section {
+  padding: 5rem 2rem; /* or whatever smaller value you prefer */
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
 .itemm {
   background-color: #fff; /* White background for the card */
   padding: 20px;
