@@ -12,7 +12,7 @@ const Program = () => {
         {
             name: 'Recommended',
             image: breaststroke,
-            description: 'Recommended for beginners',
+            description: 'Top pick for beginners',
             path: '/breaststroke',
         },
         {
