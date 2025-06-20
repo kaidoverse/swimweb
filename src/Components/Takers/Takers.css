@@ -1,111 +1,153 @@
-.Takers {
+/* Global fixes */
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Main container */
+.takers-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #013b59;
-  color: #fff;
-  padding: 50px 0;
   text-align: center;
+  padding: 2rem;
+  background-color: #ffffff;
+  min-height: 60vh;
   position: relative;
   width: 100%;
-  overflow-x: hidden; /* Prevents horizontal scrolling issues */
-  box-sizing: border-box; /* Ensures padding doesn't add extra width */
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(8rem);
+  transition: transform 1s, opacity 1s;
+  overflow-x: hidden;
 }
 
-.Takers h1 {
-  font-size: 40px;
-  font-weight: 500;
-  margin: 0 auto;
+.takers-container.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.heading-0 {
-  text-align: center;
-  font-size: 40px;
+.takers-heading {
+  margin: 20px 0;
+  color: #013b59;
   font-weight: 500;
+  font-size: 40px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 50px;
-  color: white;
 }
 
-.itemsx {
+.takers-items {
   display: flex;
-  flex-wrap: wrap; /* Ensures items wrap to the next line on smaller screens */
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 1200px;
-  gap: 20px; /* Adds consistent spacing between elements */
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.image {
-  text-align: center;
-  margin: 10px;
-  max-width: 300px;
-  flex: 1 1 calc(33.33% - 20px); /* Ensures items are flexible and fit properly */
-  box-sizing: border-box;
-}
-
-.image img {
   max-width: 100%;
-  height: auto;
+  margin: 0 auto;
+  /* overflow-x: hidden; */
+  box-sizing: border-box;
 }
 
-.image h1 {
-  font-size: 30px;
+.takers-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(14%) sepia(31%) saturate(1684%)
+    hue-rotate(162deg) brightness(94%) contrast(97%);
+}
+
+.takers-card {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.takers-card h1 {
+  font-size: 24px;
   margin-top: 10px;
-  color: #fff;
+  color: #013b59;
   font-weight: 700;
-  white-space: normal;
+  margin-bottom: 10px;
 }
 
-.image p {
+.takers-card p {
   font-size: 1rem;
-  color: #fff;
+  color: #4f6370;
   line-height: 25px;
-  margin-top: auto;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .heading-0 {
+  .takers-heading {
     font-size: 30px;
     margin-bottom: 30px;
   }
 
-  .itemsx {
-    flex-direction: column; /* Stacks items vertically */
+  .takers-items {
+    flex-direction: column;
     align-items: center;
-    gap: 20px; /* Adds spacing between stacked items */
   }
 
-  .image {
-    max-width: 90%; /* Reduces width for smaller screens */
+  .takers-card {
+    width: 90%;
+    height: auto;
   }
 
-  .image h1 {
-    font-size: 24px;
+  .takers-card h1 {
+    font-size: 22px;
   }
 
-  .image p {
-    font-size: 17px;
+  .takers-card p {
+    font-size: 16px;
     line-height: 22px;
   }
 }
 
 @media (max-width: 425px) {
-  .heading-0 {
+  .takers-container {
+    padding: 1rem;
+  }
+
+  .takers-heading {
     font-size: 25px;
   }
 
-  .image {
-    max-width: 100%; /* Images take full width of the container */
-  }
-
-  .image h1 {
+  .takers-card h1 {
     font-size: 20px;
   }
 
-  .image p {
+  .takers-card p {
     font-size: 14px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .takers-container {
+    padding-bottom: 2rem;
+    min-height: 30vh;
+  }
+
+  .takers-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .takers-card {
+    margin-bottom: 1rem;
   }
 }
