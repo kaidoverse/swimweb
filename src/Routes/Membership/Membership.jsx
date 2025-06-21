@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
-import './membership.css';
+import './Membership.css';
 
 
 const Membership = () => {
