@@ -52,48 +52,49 @@ export default function App() {
 
     return (
         <div className="carousel-container">
-            <h1>What our clients say?</h1>
+            <div className="header">
+                <h1>What our clients say?</h1>
 
-            <div className="carousel-wrapper">
-                <div
-                    className="carousel"
-                    style={{
-                        transform: `translateX(-${currentIndex * 100}%)`,
-                    }}
-                >
-                    {testimonials.map((testimonial, index) => (
-                        <div
-                            className="carousel-item"
-                            key={index}
-                            style={{
-                                width: '100%',
-                            }}
-                        >
-                            <p className="lead">"{testimonial.text}"</p>
-                            <div className="image-container">
-                                <p className="text-muted">- {testimonial.name}</p>
+                <div className="carousel-wrapper">
+                    <div
+                        className="carousel"
+                        style={{
+                            transform: `translateX(-${currentIndex * 100}%)`,
+                        }}
+                    >
+                        {testimonials.map((testimonial, index) => (
+                            <div
+                                className="carousel-item"
+                                key={index}
+                                style={{
+                                    width: '100%',
+                                }}
+                            >
+                                <p className="lead">"{testimonial.text}"</p>
+                                <div className="image-container">
+                                    <p className="text-muted">- {testimonial.name}</p>
+                                </div>
                             </div>
-                        </div>
+                        ))}
+                    </div>
+                </div>
+
+                <button className="carousel-button prev" onClick={handlePrev}>
+                    ❮
+                </button>
+                <button className="carousel-button next" onClick={handleNext}>
+                    ❯
+                </button>
+
+                <div className="dots">
+                    {testimonials.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`dots__dot ${index === currentIndex ? 'dots__dot--active' : ''}`}
+                            onClick={() => handleDotClick(index)}
+                        ></button>
                     ))}
                 </div>
-            </div>
-
-            <button className="carousel-button prev" onClick={handlePrev}>
-                ❮
-            </button>
-            <button className="carousel-button next" onClick={handleNext}>
-                ❯
-            </button>
-
-            <div className="dots">
-                {testimonials.map((_, index) => (
-                    <button
-                        key={index}
-                        className={`dots__dot ${index === currentIndex ? 'dots__dot--active' : ''}`}
-                        onClick={() => handleDotClick(index)}
-                    ></button>
-                ))}
-            </div>
-        </div>
+            </div></div>
     );
 }

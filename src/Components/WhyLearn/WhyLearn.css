@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Center the heading text */
+  text-align: center;
   padding: 20px;
   background-color: #ffffff;
   min-height: 60vh;
@@ -11,62 +11,82 @@
 
 .heading {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   color: #013b59;
   font-weight: 500;
   font-size: 40px;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow similar to the itemm */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .items {
   display: flex;
-  justify-content: center; /* Center items horizontally */
+  justify-content: center;
   align-items: center;
-  gap: 20px; /* Space between items */
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .section {
-  /* padding: 15rem 3rem; */
-  border-top: 1px solid #ddd;
-
+  /* border-top: 1px solid #ddd; */
   transition: transform 1s, opacity 1s;
 }
-.whylearn-section {
-  padding: 5rem 2rem; /* or whatever smaller value you prefer */
-}
+
+/* .whylearn-section {
+  padding: 2rem 2rem;
+} */
 
 .section--hidden {
   opacity: 0;
   transform: translateY(8rem);
 }
+
 .itemm {
-  background-color: #fff; /* White background for the card */
+  background-color: #fff;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   height: 300px;
   text-align: center;
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* cursor: pointer; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .itemm:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .itemm .text {
   font-size: 20px;
   font-weight: 500;
+  color: #013b59;
+}
+
+.image img {
+  width: auto; /* example size */
+  height: auto;
+  /* max-width: 100%; */
+  object-fit: contain;
+
+  filter: brightness(0) saturate(100%) invert(14%) sepia(31%) saturate(1684%)
+    hue-rotate(162deg) brightness(94%) contrast(97%);
+  margin-bottom: 12px;
+}
+
+@media (max-width: 320px) {
+  .heading {
+    font-size: 25px;
+  }
 }
 
 @media (max-width: 768px) {
   .items {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -74,5 +94,25 @@
   .itemm {
     width: 90%;
     height: auto;
+  }
+  .heading {
+    font-size: 30px;
+  }
+}
+
+/* 🔧 Fix excessive spacing on ultra-wide screens */
+@media (min-width: 1920px) {
+  .whylearn-section {
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .whylearn {
+    min-height: 40vh;
+  }
+
+  .whylearn-section {
+    padding-bottom: 2rem;
   }
 }

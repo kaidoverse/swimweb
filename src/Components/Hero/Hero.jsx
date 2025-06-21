@@ -26,7 +26,7 @@ const Hero = () => {
     }, []);
 
     const handleExploreClick = () => {
-        navigate('/ourPackages'); // Navigate to the programs page
+        navigate('/ourPackages');
     };
     return (
         <div className='hero container'>

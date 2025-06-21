@@ -13,9 +13,18 @@ nav {
   transition: background 0.5s;
 }
 
-.dark-nav {
-  background: #013b59; /* Background color when sticky */
+/* .dark-nav {
+  background: #013b59; 
   transition: background 0.5s;
+} */
+
+.dark-nav {
+  background: rgba(1, 43, 66, 0.88); /* Darker semi-transparent navy */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.5s, backdrop-filter 0.5s;
 }
 
 .containerr {

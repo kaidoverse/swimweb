@@ -14,10 +14,10 @@ const WhyLearn = () => {
                 const entry = entries[0];
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.unobserve(entry.target); // remove observer once visible
+                    observer.unobserve(entry.target);
                 }
             },
-            { threshold: 0.15 } // 15% of section visible triggers it
+            { threshold: 0.15 }
         );
 
         if (sectionRef.current) observer.observe(sectionRef.current);

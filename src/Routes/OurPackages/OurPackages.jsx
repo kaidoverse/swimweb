@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './OurPackages.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
-import Hero from '../../Components/Hero/Hero';
+// import Hero from '../../Components/Hero/Hero';
 import breaststroke from '../../assets/breaststroke.png';
 import freestyle from '../../assets/freestyle.png';
 import backstroke from '../../assets/backstroke.png';

@@ -1,31 +1,15 @@
-/* .about {
-  background-color: #f6f6f6;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 100vh;
-  padding: 5% 10%;
-  gap: 2rem;
-} */
-
 .about {
-  background-color: #f6f6f6;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6rem 10%;
+  padding: 3rem 10%;
   gap: 2rem;
-  /* opacity: 1; */
-  /* transform: translateY(0); */
   opacity: 0;
   transform: translateY(8rem);
   transition: transform 1s ease, opacity 1s ease;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
-/* .about {
-  opacity: 0;
-  transform: translateY(8rem);
-  transition: transform 1s ease, opacity 1s ease;
-} */
 
 .about.visible {
   opacity: 1;
@@ -33,26 +17,16 @@
 }
 
 .about-left {
-  flex: 1 1 40%; /* Adjusts dynamically */
+  flex: 1 1 45%;
   position: relative;
   display: flex;
   justify-content: center;
-}
-
-.about-right {
-  flex: 1 1 56%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: auto;
-  min-height: 80%; /* Default proportional height */
-  padding: 1rem 0;
-  box-sizing: border-box;
+  align-items: center;
 }
 
 .about-img {
   width: 100%;
-  max-width: 320px;
+  max-width: 350px;
   height: auto;
   border-radius: 10px;
   object-fit: cover;
@@ -68,9 +42,18 @@
   cursor: pointer;
 }
 
+.about-right {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
 .about h3 {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #212ea0;
   margin: 0;
 }
@@ -79,41 +62,24 @@
   font-size: 1.8rem;
   color: #373e58;
   margin: 10px 0;
+  line-height: 1.3;
 }
 
 .about p {
   color: #565e7c;
   font-size: 1rem;
   line-height: 1.6;
+  margin-top: 10px;
 }
 
-/* Tablet screens: Adjust text sizes and layout */
+/* ✅ Tablets (Keep row layout, scale down elements slightly) */
 @media (max-width: 1024px) {
   .about {
-    flex-direction: row;
-    gap: 1rem; /* Reduce space between sections */
-  }
-
-  .about-left,
-  .about-right {
-    flex: 1 1 50%;
-  }
-
-  .about-left {
-    display: flex;
-    justify-content: center;
-  }
-
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures proper vertical alignment */
-    min-height: unset; /* Allow height adjustment */
-    height: auto;
+    padding: 2.5rem 6%;
   }
 
   .about-img {
-    max-width: 280px; /* Slightly smaller image */
+    max-width: 300px;
   }
 
   .play-icon {
@@ -121,34 +87,33 @@
     height: 50px;
   }
 
-  .about h3 {
-    font-size: 1rem;
-  }
-
   .about h2 {
     font-size: 1.5rem;
   }
 
   .about p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
-/* Mobile screens */
+/* ✅ Mobile phones ONLY: switch to column layout */
 @media (max-width: 768px) {
   .about {
     flex-direction: column;
+    padding: 2rem 5%;
     text-align: center;
   }
 
   .about-left,
   .about-right {
     flex: 1 1 100%;
-    height: auto;
+    width: 100%;
+    padding: 0;
   }
 
   .about-img {
-    max-width: 250px;
+    max-width: 100%;
+    width: 90%;
   }
 
   .play-icon {
@@ -157,7 +122,7 @@
   }
 
   .about h3 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .about h2 {
@@ -165,6 +130,7 @@
   }
 
   .about p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 }

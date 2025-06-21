@@ -3,7 +3,7 @@ import './About.css';
 import inst1 from '../../assets/inst1.png';
 import play_icon from '../../assets/play-icon.png';
 
-const About = ({ setPlayState }) => {
+const About = ({ setPlayState, playState }) => {
     const aboutRef = useRef();
     const [isVisible, setIsVisible] = useState(false);
 
@@ -12,7 +12,7 @@ const About = ({ setPlayState }) => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.unobserve(entry.target);
+                    observer.unobserve(entry.target); //  animate once
                 }
             },
             { threshold: 0.2 }
@@ -21,7 +21,15 @@ const About = ({ setPlayState }) => {
         if (aboutRef.current) {
             observer.observe(aboutRef.current);
         }
+
+        return () => {
+            if (aboutRef.current) observer.unobserve(aboutRef.current);
+        };
     }, []);
+
+    const handlePlayClick = () => {
+        if (!playState) setPlayState(true); // Prevent re-triggering the overlay
+    };
 
     return (
         <div
@@ -34,7 +42,7 @@ const About = ({ setPlayState }) => {
                     src={play_icon}
                     alt="Play button"
                     className="play-icon"
-                    onClick={() => setPlayState(true)}
+                    onClick={handlePlayClick}
                 />
             </div>
             <div className="about-right">

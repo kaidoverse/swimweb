@@ -22,9 +22,10 @@ const App = () => {
 
 
   useEffect(() => {
+    setPlayState(false);
     // Check if the URL has a hash (e.g. '#program-section')
     if (window.location.hash === '#program-section' && programRef.current) {
-      programRef.current.scrollIntoView();  // Scroll directly to the Program section
+      programRef.current.scrollIntoView({ behavior: 'smooth' });  // Scroll directly to the Program section
     }
   }, [location]); // Ensure it checks whenever the location changes
 

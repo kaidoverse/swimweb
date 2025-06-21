@@ -19,7 +19,6 @@ const Navbar = () => {
             }
         };
 
-        // Apply scroll-based stickiness only on the home page
         if (location.pathname === '/') {
             window.addEventListener('scroll', handleScroll);
         }
@@ -32,9 +31,9 @@ const Navbar = () => {
         }
 
         return () => {
-            window.removeEventListener('scroll', handleScroll); // Clean up
+            window.removeEventListener('scroll', handleScroll);
         };
-    }, [location.pathname]); // Re-run effect when the path changes
+    }, [location.pathname]);
 
     // Close mobile menu on window resize (desktop view)
     useEffect(() => {
@@ -53,7 +52,6 @@ const Navbar = () => {
     };
 
     const handleLinkClick = () => {
-        // Always close mobile menu when a link is clicked
         setMobileMenu(false);
     };
 

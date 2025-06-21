@@ -1,3 +1,11 @@
+/* Global Reset (recommended) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Container */
 .carousel-container {
   display: flex;
   align-items: center;
@@ -13,6 +21,7 @@
   border: 1px solid #ddd;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden; /* Prevent overflow on mobile */
 }
 
 .carousel-container h1 {
@@ -25,7 +34,6 @@
 .carousel-wrapper {
   overflow: hidden;
   width: 100%;
-  height: auto;
   min-height: 150px;
 }
 
@@ -36,11 +44,12 @@
 }
 
 .carousel-item {
-  /* flex-shrink: 0; */
   flex: 0 0 100%;
   box-sizing: border-box;
   text-align: center;
   padding: 0 10px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .lead {
@@ -114,7 +123,7 @@
   background-color: #013b59;
 }
 
-/* Responsive Tweaks */
+/* ✅ Responsive Tweaks */
 @media (max-width: 768px) {
   .carousel-container {
     width: 95%;
@@ -132,15 +141,7 @@
   }
 
   .carousel-button {
-    padding: 8px 12px;
-  }
-
-  .carousel-button.prev {
-    left: 5px;
-  }
-
-  .carousel-button.next {
-    right: 5px;
+    display: none; /* ✅ Hide navigation arrows on smaller screens */
   }
 
   .profile-image {
