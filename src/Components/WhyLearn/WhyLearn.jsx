@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './WhyLearn.css';
+
 import healthcare from '../../assets/healthcare.png';
 import mental_health from '../../assets/mental-health.png';
 import stress_relief from '../../assets/stress-relief.png';
@@ -24,40 +25,42 @@ const WhyLearn = () => {
     }, []);
 
     return (
-        <div className="whylearn">
+        <section className="whylearn">
             <div
                 ref={sectionRef}
-                className={`section whylearn-section ${!isVisible ? 'section--hidden' : ''}`}
+                className={`whylearn-section ${isVisible ? 'visible' : 'hidden'}`}
             >
-                <h1 className="heading">Why Learn Swimming?</h1>
+                <h2 className="heading">Why Learn Swimming?</h2>
                 <div className="items">
-                    <div className="itemm">
+                    <div className="itemm" role="region" aria-label="Physical health benefit">
                         <div className="item-card">
                             <div className="image">
-                                <img src={healthcare} alt="healthcare" />
+                                <img src={healthcare} alt="Improves physical health" loading="lazy" decoding="async" />
                             </div>
                             <div className="text">Improves physical health</div>
                         </div>
                     </div>
-                    <div className="itemm">
+
+                    <div className="itemm" role="region" aria-label="Mental health benefit">
                         <div className="item-card">
                             <div className="image">
-                                <img src={mental_health} alt="mental-health" />
+                                <img src={mental_health} alt="Improves mental health" loading="lazy" decoding="async" />
                             </div>
                             <div className="text">Improves mental health</div>
                         </div>
                     </div>
-                    <div className="itemm">
+
+                    <div className="itemm" role="region" aria-label="Stress relief benefit">
                         <div className="item-card">
                             <div className="image">
-                                <img src={stress_relief} alt="stress-relief" />
+                                <img src={stress_relief} alt="Reduces stress and anxiety" loading="lazy" decoding="async" />
                             </div>
-                            <div className="text">Helps reduce stress and anxiety</div>
+                            <div className="text">Reduces stress and anxiety</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

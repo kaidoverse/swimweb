@@ -3,116 +3,137 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
   background-color: #ffffff;
-  min-height: 60vh;
   position: relative;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.whylearn-section {
+  max-width: 1200px;
+  width: 100%;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .heading {
-  margin-top: 20px;
-  margin-bottom: 50px;
-  color: #013b59;
-  font-weight: 500;
   font-size: 40px;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #013b59;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .items {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  align-items: stretch;
   flex-wrap: wrap;
-}
-
-.section {
-  /* border-top: 1px solid #ddd; */
-  transition: transform 1s, opacity 1s;
-}
-
-/* .whylearn-section {
-  padding: 2rem 2rem;
-} */
-
-.section--hidden {
-  opacity: 0;
-  transform: translateY(8rem);
+  gap: 24px;
 }
 
 .itemm {
   background-color: #fff;
-  padding: 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  padding: 24px 16px;
   width: 300px;
   height: 300px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-}
-
-.itemm:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .itemm .text {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #013b59;
+  margin-top: 12px;
+  text-align: center;
 }
 
 .image img {
-  width: auto; /* example size */
-  height: auto;
-  /* max-width: 100%; */
+  width: 60px;
+  height: 60px;
   object-fit: contain;
-
   filter: brightness(0) saturate(100%) invert(14%) sepia(31%) saturate(1684%)
     hue-rotate(162deg) brightness(94%) contrast(97%);
-  margin-bottom: 12px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 1024px) {
+  .whylearn {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
   .heading {
-    font-size: 25px;
+    font-size: 34px;
+  }
+
+  .itemm {
+    width: 300px;
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .items {
+    justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
+  .heading {
+    font-size: 30px;
+  }
+
   .items {
     flex-direction: column;
     align-items: center;
   }
 
   .itemm {
-    width: 90%;
-    height: auto;
+    width: 300px;
+    height: 300px;
+    min-height: 300px;
   }
+}
+
+@media (max-width: 425px) {
   .heading {
-    font-size: 30px;
-  }
-}
-
-/* 🔧 Fix excessive spacing on ultra-wide screens */
-@media (min-width: 1920px) {
-  .whylearn-section {
-    padding-bottom: 3rem;
-  }
-}
-
-@media (min-width: 2560px) {
-  .whylearn {
-    min-height: 40vh;
+    font-size: 26px;
   }
 
-  .whylearn-section {
-    padding-bottom: 2rem;
+  .itemm {
+    width: 90%;
+    max-width: 300px;
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .itemm .text {
+    font-size: 16px;
+  }
+
+  .image img {
+    width: 50px;
+    height: 50px;
   }
 }
