@@ -1,6 +1,19 @@
+/* Section container */
 .meet-our-team {
-  padding: 50px 10%;
+  padding-top: 0;
+  padding-bottom: 8rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   text-align: center;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  box-sizing: border-box;
+}
+
+.meet-our-team.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .meet-our-team h2 {
@@ -10,38 +23,51 @@
   margin-bottom: 40px;
 }
 
+/* Outer carousel container */
 .team-carousel {
-  position: relative;
-  overflow: hidden;
+  width: 100%;
 }
 
+/* Inner flex container */
 .team-members-container {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  gap: 30px;
+  justify-content: center;
 }
 
 .team-members-slider {
   display: flex;
-  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
   padding: 0;
   margin: 0;
+  list-style: none;
   width: 100%;
-  flex-wrap: nowrap;
 }
 
 .team-members-slider li {
-  flex: 0 0 100%;
-  padding: 0 15px;
+  flex: 1 1 280px;
+  max-width: 300px;
   box-sizing: border-box;
 }
 
 .team-member {
   background-color: #f8f8f8;
   border-radius: 10px;
-  padding: 30px;
+  padding: 30px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-member h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #002b44;
+  /* margin: 0.5rem 0; */
 }
 
 .member-image {
@@ -50,26 +76,76 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
+  border: 4px solid #013b59;
 }
 
 .team-member h3 {
-  font-size: 35px;
+  font-size: 28px;
   color: #013b59;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .member-role {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 400;
   color: #676767;
 }
 
-.nav-button {
-  display: none;
+@media (max-width: 1024px) {
+  .meet-our-team h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .member-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .team-member h3 {
+    font-size: 24px;
+  }
+
+  .member-role {
+    font-size: 18px;
+  }
 }
 
-@media (min-width: 768px) {
-  .team-members-slider li {
-    flex: 0 0 33.33%;
+@media (max-width: 768px) {
+  .meet-our-team h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .member-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .team-member h3 {
+    font-size: 22px;
+  }
+
+  .member-role {
+    font-size: 17px;
+  }
+
+  .team-members-slider {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .team-member h3 {
+    font-size: 20px;
+  }
+
+  .member-role {
+    font-size: 16px;
   }
 }
