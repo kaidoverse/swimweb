@@ -1,88 +1,40 @@
-import React, { useState, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './BookingForm.css';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaClock, FaUser, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import Navbar from '../../../Components/Navbar/Navbar';
-
-// Helper function to handle time slot selection
-const TimeSlots = ({ availableTimes, selectedTime, handleTimeChange }) => {
-    return (
-        <div className="time-slots">
-            {availableTimes.map((time, index) => (
-                <button
-                    key={index}
-                    className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
-                    onClick={() => handleTimeChange(time)}
-                >
-                    {time}
-                </button>
-            ))}
-        </div>
-    );
-};
+import Footer from '../../../Components/Footer/Footer';
 
 const BookingForm = () => {
-    const { packageName } = useParams();
-    const navigate = useNavigate();
-
     const [step, setStep] = useState(1);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [bookingDetails, setBookingDetails] = useState({
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedTime, setSelectedTime] = useState('');
+    const [age, setAge] = useState('');
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        date: new Date(),
-        time: '',
-        age: '',
-        additionalInfo: '',
+        additionalInfo: ''
     });
 
-    const availableTimes = ['9:00 AM', '11:00 AM', '1:00 PM', '3:00 PM', '5:00 PM'];
+    const navigate = useNavigate();
 
-    // Handle input changes
-    const handleChange = useCallback((e) => {
-        const { name, value } = e.target;
-        setBookingDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
-    }, []);
+    const timeSlots = ['09:00 AM', '11:00 AM', '01:00 PM', '03:00 PM', '05:00 PM'];
 
-    const handleDateChange = (date) => setBookingDetails({ ...bookingDetails, date });
-    const handleTimeChange = (time) => setBookingDetails({ ...bookingDetails, time });
-
-    // Move to the next step
     const handleNext = () => setStep(2);
+    const handleBack = () => step === 1 ? navigate(-1) : setStep(1);
 
-    // Handle form submission
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            console.log('Booking Details:', bookingDetails);
-            localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
-
-            navigate(`/OurPackages/${packageName}/bookingconfirmation`); // Navigate to Booking Confirmation
-        } catch (error) {
-            console.error('Booking failed:', error);
-        }
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
     };
 
-    // Dynamic class names for package styles
-    const packageClassNames = {
-        breaststroke: "breaststroke",
-        backstroke: "backstroke",
-        freestyle: "freestyle",
-        butterfly: "butterfly",
-        "pregnant-woman": "pregnant-woman",
-        "special-need": "special-need",
-    };
-
-    const formattedDate = bookingDetails.date.toLocaleDateString();
-
-    const handleBack = () => {
-        if (step === 2) {
-            setStep(1); // Go back to step 1
-        } else {
-            navigate(-1); // Navigate to the package list
-        }
+    const handleBooking = () => {
+        navigate('/ourpackages/breaststroke/bookingconfirmation');
     };
 
     return (
@@ -90,135 +42,151 @@ const BookingForm = () => {
             <Navbar />
             <div className="booking-container">
                 <div className="back-and-heading">
-                    {/* Back Button */}
                     <button className="responsive-back-button" onClick={handleBack}>
-                        &#10094; Back
+                        <FaArrowLeft /> Back
                     </button>
-                    <h2 className={`package-heading ${packageClassNames[packageName]}`}>
-                        {packageName.replace('-', ' ')} Package
-                    </h2>
+                    <h1 className="package-heading">Breaststroke Program Booking</h1>
                 </div>
 
+                <div className="progress-steps">
+                    <div className={`step ${step === 1 ? 'active' : ''}`}>Schedule</div>
+                    <div className={`step ${step === 2 ? 'active' : ''}`}>Your Details</div>
+                </div>
 
-                {step === 1 && (
+                {step === 1 ? (
                     <div className="step-one-container">
-
-                        {/* Left Column: Date and Time Selection */}
-                        <div className="left-column">
-                            <label>Select Preferred Date</label>
-                            <Calendar
-                                value={bookingDetails.date}
-                                onChange={handleDateChange}
-                                minDate={new Date()} // Prevent past dates
-                            />
-
-                            <label>Select Time</label>
-                            <TimeSlots
-                                availableTimes={availableTimes}
-                                selectedTime={bookingDetails.time}
-                                handleTimeChange={handleTimeChange}
-                            />
-                        </div>
-
-                        {/* Right Column: Service Details */}
-                        <div className="right-column">
-                            <div className="service-details">
-                                <label>Service Details</label>
-                                <p><strong>Package:</strong> {packageName.replace('-', ' ')}</p>
-                                <p><strong>Date:</strong> {formattedDate}</p>
-                                <p><strong>Time:</strong> {bookingDetails.time || 'Not selected'}</p>
-                                <p><strong>Age:</strong> {bookingDetails.age || 'Not selected'}</p>
-                                <input
-                                    type="number"
-                                    name="age"
-                                    placeholder="Your age"
-                                    value={bookingDetails.age}
-                                    onChange={handleChange}
-                                    required
+                        <div className="calendar-section">
+                            <div className="form-group">
+                                <label><FaCalendarAlt /> Select Date</label>
+                                <Calendar
+                                    onChange={setSelectedDate}
+                                    value={selectedDate}
+                                    minDate={new Date()}
+                                    className="booking-calendar"
                                 />
                             </div>
+
+                            <div className="form-group">
+                                <label><FaClock /> Available Time Slots</label>
+                                <div className="time-slots">
+                                    {timeSlots.map((time) => (
+                                        <button
+                                            key={time}
+                                            className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
+                                            onClick={() => setSelectedTime(time)}
+                                        >
+                                            {time}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label><FaUser /> Participant's Age</label>
+                                <input
+                                    type="number"
+                                    placeholder="Enter age"
+                                    value={age}
+                                    onChange={(e) => setAge(e.target.value)}
+                                    min="1"
+                                    max="120"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="summary-section">
+                            <div className="service-details">
+                                <h3>Program Summary</h3>
+                                <p><strong>Package:</strong> Breaststroke Intensive</p>
+                                <p><strong>Session:</strong> 2 hours</p>
+                                <p><strong>Price:</strong> GHS 800</p>
+                                <p><strong>Date:</strong> {selectedDate.toLocaleDateString()}</p>
+                                <p><strong>Time:</strong> {selectedTime || 'Not selected'}</p>
+                                <p><strong>Age:</strong> {age || 'Not provided'}</p>
+                            </div>
+
                             <button className="next-button" onClick={handleNext}>
-                                Next
+                                Continue to Details <FaArrowRight />
                             </button>
                         </div>
                     </div>
-                )}
-
-                {step === 2 && (
+                ) : (
                     <div className="step-two-container">
                         <div className="step-two-columns">
-                            {/* Left Column: Form Details */}
-                            {!isLoggedIn ? (
-                                <form className="user-details-form" onSubmit={handleSubmit}>
-                                    <label htmlFor="name">Name</label>
+                            <div className="user-details-form">
+                                <h2>Your Information</h2>
+
+                                <div className="input-group">
                                     <input
                                         type="text"
                                         id="name"
                                         name="name"
-                                        placeholder="Your name"
-                                        value={bookingDetails.name}
+                                        placeholder=" "
+                                        value={formData.name}
                                         onChange={handleChange}
                                         required
                                     />
+                                    <label htmlFor="name"><FaUser /> Full Name</label>
+                                </div>
 
-                                    <label htmlFor="email">Email</label>
+                                <div className="input-group">
                                     <input
                                         type="email"
                                         id="email"
                                         name="email"
-                                        placeholder="Your email"
-                                        value={bookingDetails.email}
+                                        placeholder=" "
+                                        value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        pattern="^[^@]+@[^@]+\.[^@]+$" // Email validation pattern
                                     />
+                                    <label htmlFor="email"><FaEnvelope /> Email</label>
+                                </div>
 
-                                    <label htmlFor="phone">Phone</label>
+                                <div className="input-group">
                                     <input
                                         type="tel"
                                         id="phone"
                                         name="phone"
-                                        placeholder="Your phone number"
-                                        value={bookingDetails.phone}
+                                        placeholder=" "
+                                        value={formData.phone}
                                         onChange={handleChange}
                                         required
-                                        pattern="^\+?\d{1,4}?[-. ]?(\d{1,3})[-. ]?(\d{1,4})[-. ]?(\d{1,4})$" // Phone number validation
                                     />
+                                    <label htmlFor="phone"><FaPhoneAlt /> Phone</label>
+                                </div>
 
-                                    <label htmlFor="additionalInfo">Additional Information</label>
+                                <div className="form-group">
+                                    <label>Additional Information (Optional)</label>
                                     <textarea
                                         id="additionalInfo"
                                         name="additionalInfo"
-                                        placeholder="Anything we should know?"
-                                        value={bookingDetails.additionalInfo}
+                                        placeholder="Any special requirements or notes?"
+                                        value={formData.additionalInfo}
                                         onChange={handleChange}
                                     ></textarea>
-
-                                    <button type="submit" className="book-now-button">
-                                        Book Now
-                                    </button>
-                                </form>
-                            ) : (
-                                <div className="user-logged-in-message">
-                                    <h3>Welcome back, {userName}!</h3>
-                                    <p>You're logged in and ready to confirm your booking.</p>
                                 </div>
-                            )}
 
-                            {/* Right Column: Service Summary */}
+                                <button className="book-now-button" onClick={handleBooking}>
+                                    Confirm Booking <FaArrowRight />
+                                </button>
+                            </div>
+
                             <div className="service-summary">
-                                <h3>Confirm Booking</h3>
-                                <p><strong>Package:</strong> {packageName.replace('-', ' ')}</p>
-                                <p><strong>Price:</strong> ₵1200</p>
-                                <p><strong>Date:</strong> {formattedDate}</p>
-                                <p><strong>Time:</strong> {bookingDetails.time || 'Not selected'}</p>
-                                <p><strong>Age:</strong> {bookingDetails.age || 'Not selected'}</p>
+                                <h3>Booking Summary</h3>
+                                <p><strong>Package:</strong> Breaststroke Intensive</p>
+                                <p><strong>Price:</strong> GHS 800</p>
+                                <p><strong>Date:</strong> {selectedDate.toLocaleDateString()}</p>
+                                <p><strong>Time:</strong> {selectedTime || 'Not selected'}</p>
+                                <p><strong>Age:</strong> {age || 'Not provided'}</p>
+                                <p><strong>Name:</strong> {formData.name || 'Not provided'}</p>
+                                <p><strong>Email:</strong> {formData.email || 'Not provided'}</p>
+                                <p><strong>Phone:</strong> {formData.phone || 'Not provided'}</p>
                             </div>
                         </div>
                     </div>
                 )}
-
             </div>
+            <Footer />
         </>
     );
 };
