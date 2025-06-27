@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./Instructor.css";
 
-export default function App() {
+const Instructor = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const testimonials = [
@@ -51,29 +51,19 @@ export default function App() {
     }, [handleNext, handlePrev]);
 
     return (
-        <div className="carousel-container">
-            <div className="header">
-                <h1>What our clients say?</h1>
+        <div className="carousel-parent">
+            <h2 className="testimonial-heading">What Our Clients Say</h2>
+            <section className="carousel-container">
 
                 <div className="carousel-wrapper">
                     <div
                         className="carousel"
-                        style={{
-                            transform: `translateX(-${currentIndex * 100}%)`,
-                        }}
+                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                     >
-                        {testimonials.map((testimonial, index) => (
-                            <div
-                                className="carousel-item"
-                                key={index}
-                                style={{
-                                    width: '100%',
-                                }}
-                            >
-                                <p className="lead">"{testimonial.text}"</p>
-                                <div className="image-container">
-                                    <p className="text-muted">- {testimonial.name}</p>
-                                </div>
+                        {testimonials.map((t, index) => (
+                            <div className="carousel-item" key={index}>
+                                <p className="lead">"{t.text}"</p>
+                                <p className="text-muted">– {t.name}</p>
                             </div>
                         ))}
                     </div>
@@ -92,9 +82,11 @@ export default function App() {
                             key={index}
                             className={`dots__dot ${index === currentIndex ? 'dots__dot--active' : ''}`}
                             onClick={() => handleDotClick(index)}
-                        ></button>
+                        />
                     ))}
                 </div>
-            </div></div>
+            </section></div>
     );
-}
+};
+
+export default Instructor;

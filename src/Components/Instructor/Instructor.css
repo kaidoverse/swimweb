@@ -1,27 +1,28 @@
-/* Global Reset (recommended) */
-*,
-*::before,
-*::after {
+.carousel-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 1rem;
+  width: 100%;
   box-sizing: border-box;
 }
 
-/* Container */
 .carousel-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   position: relative;
-  height: 500px;
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 100px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 500px;
+  padding: 2rem;
   text-align: center;
-  padding: 50px 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow-x: hidden; /* Prevent overflow on mobile */
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .carousel-container h1 {
@@ -29,6 +30,13 @@
   font-weight: 500;
   color: #013b59;
   padding-bottom: 40px;
+}
+
+.testimonial-heading {
+  font-size: 40px;
+  font-weight: 500;
+  color: #013b59;
+  margin-bottom: 40px;
 }
 
 .carousel-wrapper {
@@ -101,9 +109,9 @@
   background-color: #012a45;
 }
 
-/* Dots Navigation */
 .dots {
   margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -123,25 +131,22 @@
   background-color: #013b59;
 }
 
-/* ✅ Responsive Tweaks */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .carousel-container {
-    width: 95%;
-    height: auto;
-    padding: 40px 15px;
+    padding: 2rem;
   }
+}
 
+@media (max-width: 768px) {
+  .testimonial-heading,
   .carousel-container h1 {
     font-size: 28px;
+    margin-bottom: 30px;
   }
 
   .lead {
-    font-size: 18px;
+    font-size: 1rem;
     margin: 0 10px;
-  }
-
-  .carousel-button {
-    display: none; /* ✅ Hide navigation arrows on smaller screens */
   }
 
   .profile-image {
@@ -149,8 +154,31 @@
     height: 80px;
   }
 
+  .carousel-button {
+    display: none;
+  }
+
   .dots__dot {
     width: 10px;
     height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    padding: 1rem;
+  }
+
+  .lead {
+    font-size: 0.95rem;
+  }
+
+  .profile-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .testimonial-heading {
+    font-size: 24px;
   }
 }
