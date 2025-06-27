@@ -13,13 +13,8 @@ nav {
   transition: background 0.5s;
 }
 
-/* .dark-nav {
-  background: #013b59; 
-  transition: background 0.5s;
-} */
-
 .dark-nav {
-  background: rgba(1, 43, 66, 0.88); /* Darker semi-transparent navy */
+  background: rgba(1, 43, 66, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
@@ -49,7 +44,7 @@ nav ul {
 }
 
 nav ul li {
-  margin: 0 15px; /* Adjust spacing between nav links */
+  margin: 0 15px;
 }
 
 nav ul li a {
@@ -60,7 +55,12 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #ccc; /* Hover effect for links */
+  color: #ccc;
+}
+
+nav ul li a.active-link {
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
 }
 
 .bbtn {
@@ -75,14 +75,20 @@ nav ul li a:hover {
 }
 
 .bbtn:hover {
-  background-color: #f0f0f0; /* Hover effect for button */
+  background-color: #f0f0f0;
 }
 
-.menu-icon {
-  display: none; /* Hide menu icon by default */
+.menu-toggle-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
 }
 
-/* Mobile Menu Styles (768px and below) */
 @media (max-width: 768px) {
   .containerr {
     padding-left: 5%;
@@ -90,62 +96,58 @@ nav ul li a:hover {
   }
 
   nav ul {
-    display: none; /* Hide nav links on small screens */
+    display: none;
   }
 
-  .menu-icon {
-    display: block; /* Show menu icon */
-    width: 30px;
-    cursor: pointer;
-    position: fixed; /* Position the icon fixed */
-    top: 20px; /* Adjust top position */
-    right: 20px; /* Adjust right position */
-    z-index: 101; /* Ensure the icon is above the mobile menu */
-  }
-
-  /* Mobile Menu Open State */
   nav ul.mobile-menu-open {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0; /* Cover the entire screen from the top */
-    left: 0;
+    top: 0;
     right: 0;
     bottom: 0;
     background: #013b59;
-    width: 100%;
-    height: 100vh; /* Cover the entire viewport height */
-    padding: 80px 0 20px;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    padding: 100px 20px 20px;
     z-index: 99;
-    overflow-y: auto; /* Allow scrolling if the menu is too long */
-    animation: slideDown 0.3s ease-in-out; /* Dropdown animation */
+    overflow-y: auto;
+    animation: slideInFromRight 0.3s ease-in-out;
   }
 
   nav ul.mobile-menu-open li {
-    margin: 15px 0;
-    text-align: center;
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .menu-toggle-button {
+    display: block;
   }
 }
 
-/* Dropdown Animation */
-@keyframes slideDown {
+@keyframes slideInFromRight {
   from {
-    transform: translateY(-100%);
+    transform: translateX(100%);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translateX(0%);
     opacity: 1;
   }
 }
 
-/* Overlay for Mobile Menu */
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 98;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
