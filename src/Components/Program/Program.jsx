@@ -36,7 +36,7 @@ const Program = () => {
     return (
         <div id="program-section" className='head'>
             <h2>Our Swimming Programs</h2>
-            {/* <p>Come discover the world of swimming lessons with SWA...</p> */}
+
             <div className='program'>
                 {programs.map((program, index) => (
                     <div key={index} className='programm'>

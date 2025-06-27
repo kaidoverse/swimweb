@@ -64,8 +64,8 @@
   line-height: 1.2;
 }
 
-.about-right h2 {
-  /* font-size: 28px; */
+.about-right .bvb {
+  font-size: 28px;
   font-weight: 500;
   color: #373e58;
   margin: 10px 0;

@@ -54,7 +54,7 @@ const About = ({ setPlayState, playState }) => {
 
             <div className="about-right">
                 <h3>About Us</h3>
-                <h2>We are an all-female instructor group</h2>
+                <h2 className='bvb'>We are an all-female instructor group</h2>
                 <p>
                     Equipped to teach you how to swim in just four days, SWA conducts classes for both
                     children and adults. Our staff is perfectly trained to help participants overcome the fear
