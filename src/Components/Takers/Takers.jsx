@@ -1,4 +1,3 @@
-// Takers.js
 import React, { useEffect, useRef, useState } from 'react';
 import './Takers.css';
 import difference from '../../assets/difference.png';
@@ -28,28 +27,42 @@ const Takers = () => {
         };
     }, []);
 
+    const takersData = [
+        {
+            img: difference,
+            alt: 'Safety Approach',
+            title: 'Safety-Centric Approach',
+            desc: 'We believe that stronger swimmers are safer swimmers.',
+        },
+        {
+            img: lap_swimmer,
+            alt: 'Custom Learning',
+            title: 'Custom Learning Experience',
+            desc: "Personalized learning plans based on a child's skill level.",
+        },
+        {
+            img: watericon,
+            alt: 'Qualified Instructors',
+            title: 'Qualified and Caring Instructors',
+            desc: 'Our instructors are dedicated to supporting students\' progress.',
+        },
+    ];
+
     return (
-        <div
-            className={`takers-container ${isVisible ? 'visible' : ''}`}
-            ref={takersRef}
-        >
+        <div className={`takers-container ${isVisible ? 'visible' : ''}`} ref={takersRef}>
             <h1 className="takers-heading">Why Choose Us?</h1>
             <div className="takers-items">
-                <div className="takers-card">
-                    <img src={difference} alt="Safety Approach" />
-                    <h1>Safety-Centric Approach</h1>
-                    <p>We believe that stronger swimmers are safer swimmers.</p>
-                </div>
-                <div className="takers-card">
-                    <img src={lap_swimmer} alt="Custom Learning" />
-                    <h1>Custom Learning Experience</h1>
-                    <p>Personalized learning plans based on a child's skill level.</p>
-                </div>
-                <div className="takers-card">
-                    <img src={watericon} alt="Qualified Instructors" />
-                    <h1>Qualified and Caring Instructors</h1>
-                    <p>Our instructors are dedicated to supporting students' progress.</p>
-                </div>
+                {takersData.map((item, index) => (
+                    <div
+                        className={`takers-card ${isVisible ? 'fade-in' : ''}`}
+                        style={{ transitionDelay: `${index * 0.2}s` }}
+                        key={index}
+                    >
+                        <img src={item.img} alt={item.alt} />
+                        <h1>{item.title}</h1>
+                        <p>{item.desc}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );
