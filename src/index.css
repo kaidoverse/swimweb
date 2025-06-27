@@ -16,12 +16,12 @@
   font-family: "Outfit", sans-serif;
 }
 
+html,
 body {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  /* background: #fdfdf1; */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a {
@@ -35,9 +35,9 @@ a {
   padding-left: 10%;
   padding-right: 10%;
   background: #fdfdf1;
-} */
+  } */
 
-.btn {
+/* .btn {
   background: #fff;
   color: #212121;
   padding: 14px 25px;
@@ -49,7 +49,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .btn img {
   width: 20px;
@@ -57,9 +57,35 @@ a {
 }
 
 .btn.dark-btn {
-  background: #212ea0;
+  background: #013b59;
   color: #fff;
 }
+
+.takers-card p,
+.itemm .text,
+.about p {
+  color: #4a4a4a;
+}
+
+.takers-items,
+.items {
+  align-items: stretch;
+}
+
+/* .takers-card,
+.itemm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+/* .hero,
+.whylearn,
+.takers-container,
+.about {
+  margin-bottom: 4rem;
+} */
 
 @media (max-width: 1200px) {
   .container {
