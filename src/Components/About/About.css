@@ -59,16 +59,13 @@
 
 .about-right h3 {
   font-weight: 500;
-  /* font-size: 1.1rem; */
   font-size: 40px;
-  /* color: #212ea0; */
   color: #013b59;
   line-height: 1.2;
-  /* margin: 0; */
 }
 
 .about-right h2 {
-  font-size: 28px;
+  /* font-size: 28px; */
   font-weight: 500;
   color: #373e58;
   margin: 10px 0;
