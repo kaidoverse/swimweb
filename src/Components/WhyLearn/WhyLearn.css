@@ -63,7 +63,7 @@
 }
 
 .itemm .text {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 500;
   color: #013b59;
   margin-top: 12px;
@@ -71,8 +71,8 @@
 }
 
 .image img {
-  width: 60px;
-  height: 60px;
+  /* width: 60px; */
+  /* height: 60px; */
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(14%) sepia(31%) saturate(1684%)
     hue-rotate(162deg) brightness(94%) contrast(97%);
