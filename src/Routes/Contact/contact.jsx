@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './contact.css';
 import mail_icon from '../../assets/mail-icon.png';
 import phone_icon from '../../assets/phone-icon.png';
@@ -38,6 +38,13 @@ const Contact = () => {
             setSubmitting(false);
         }
     };
+
+    useEffect(() => {
+        if (result && result !== 'Sending...') {
+            const timeout = setTimeout(() => setResult(''), 3000);
+            return () => clearTimeout(timeout);
+        }
+    }, [result]);
 
     return (
         <div className="contact-container">
@@ -93,7 +100,8 @@ const Contact = () => {
                                 id="name"
                                 name="name"
                                 autoComplete="name"
-                                required
+                                placeholder="name" required
+
                             />
                         </div>
 
@@ -104,6 +112,7 @@ const Contact = () => {
                                 id="email"
                                 name="email"
                                 autoComplete="email"
+                                placeholder="name@email.com"
                                 required
                             />
                         </div>
@@ -115,7 +124,7 @@ const Contact = () => {
                                 id="phone"
                                 name="phone"
                                 autoComplete="tel"
-                                required
+                                placeholder="Your phone number" required
                             />
                         </div>
 

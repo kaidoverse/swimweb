@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 
-import teach1 from '../../assets/teach1.png';
-import newimg from '../../assets/newimg.png';
-import manager_1 from '../../assets/manager-1.png';
+import teach1 from '../../assets/teach1.webp';
+import newimg from '../../assets/newimg.webp';
+import manager_1 from '../../assets/manager-1.webp';
 
 const Hero = () => {
     const images = [
