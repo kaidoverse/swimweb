@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import App from './App';
-import PageLoader from './components/common/PageLoader';
+import PageLoader from './Components/common/PageLoader';
 import { VideoProvider } from './context/VideoContext';
 import './index.css';
 
