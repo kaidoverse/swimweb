@@ -1,11 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    rollupOptions: {
-      // Add any specific Rollup options you need
-    }
-  }
-})
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@assets': '/src/assets',
+      '@components': '/src/Components',
+      '@home': '/src/pages/Home',
+      '@hooks': '/src/Hooks',
+    },
+  },
+});
