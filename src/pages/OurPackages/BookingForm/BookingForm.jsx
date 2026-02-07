@@ -255,7 +255,7 @@ const BookingForm = () => {
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center justify-end gap-4 pt-2">
+                                        <div className="flex w-full items-center justify-center gap-4 pt-2">
                                             <button
                                                 onClick={handleConfirmAndSend}
                                                 className="px-6 py-3 bg-black text-white text-xs uppercase tracking-[0.3em] hover:bg-[#111] disabled:opacity-60"
