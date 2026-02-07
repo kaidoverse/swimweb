@@ -1,7 +1,7 @@
 import React from 'react';
-import './Gridcard.css'; // Import your CSS file
+import './GridCard.css'; // Import your CSS file
 
-const Gridcard = () => {
+const GridCard = () => {
     return (
 
         <div className="card-container">
@@ -141,4 +141,4 @@ const Gridcard = () => {
     );
 };
 
-export default Gridcard;
+export default GridCard;
