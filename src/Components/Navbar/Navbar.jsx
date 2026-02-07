@@ -94,7 +94,7 @@ const Navbar = () => {
                         ))}
                         <li className="m-0 p-0">
                             <Link to={ROUTES.CONTACT}>
-                                <button className="bg-white text-[#013b59] rounded-[50px] px-6 py-2.5 text-[14px] font-medium hover:bg-gray-100 transition-colors border-none cursor-pointer">
+                                <button className="bg-white text-[#c9a24d] rounded-[50px] px-6 py-2.5 text-[14px] font-medium hover:bg-gray-100 transition-colors border-none cursor-pointer">
                                     Contact us
                                 </button>
                             </Link>
@@ -149,7 +149,7 @@ const Navbar = () => {
                             ))}
                             <li className="my-5 mx-0">
                                 <Link to={ROUTES.CONTACT}>
-                                    <button className="w-full bg-white text-[#013b59] rounded-md py-3 font-medium hover:bg-gray-100 transition-colors border-none cursor-pointer">
+                                    <button className="w-full bg-white text-[#c9a24d] rounded-md py-3 font-medium hover:bg-gray-100 transition-colors border-none cursor-pointer">
                                         Contact us
                                     </button>
                                 </Link>

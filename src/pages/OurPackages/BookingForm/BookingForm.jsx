@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import { toast } from 'sonner';
 import { PACKAGES } from '../../../constants/packages';
 import { ROUTES } from '../../../constants/routes';
 
@@ -10,7 +11,6 @@ const BookingForm = () => {
     const [selectedDateValue, setSelectedDateValue] = useState(new Date().toISOString().slice(0, 10));
     const [selectedTime, setSelectedTime] = useState('');
     const [age, setAge] = useState('');
-    const [result, setResult] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -42,19 +42,16 @@ const BookingForm = () => {
 
     const handleConfirmAndSend = async () => {
         if (!formData.name || !formData.email || !formData.phone || !selectedTime) {
-            setResult('Please complete all required fields and select a time.');
+            toast.error('Please complete all required fields and select a time.');
             return;
         }
-
-        setIsSubmitting(true);
-        setResult('Submitting your booking...');
 
         const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || '';
         if (!accessKey) {
-            setResult('Missing form configuration. Please try again later.');
-            setIsSubmitting(false);
+            toast.error('Missing form configuration. Please try again later.');
             return;
         }
+
         const payload = new FormData();
         payload.append('access_key', accessKey);
         payload.append('subject', 'New Swimming Booking Request');
@@ -67,21 +64,34 @@ const BookingForm = () => {
         payload.append('age', age || 'Not provided');
         payload.append('additionalInfo', formData.additionalInfo || 'None');
 
-        try {
+        setIsSubmitting(true);
+
+        const submitPromise = (async () => {
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: payload,
             });
 
             const data = await response.json();
-            if (data.success) {
-                navigate('/packages/success');
-            } else {
-                setResult('Something went wrong. Please try again.');
+            if (!data.success) {
+                throw new Error(data.message || 'Something went wrong. Please try again.');
             }
+            return data;
+        })();
+
+        toast.promise(submitPromise, {
+            loading: 'Submitting your booking...',
+            success: () => {
+                navigate('/packages/success');
+                return 'Booking submitted. We will contact you shortly.';
+            },
+            error: (err) => err?.message || 'Network error. Please try again.',
+        });
+
+        try {
+            await submitPromise;
         } catch (err) {
-            console.error(err);
-            setResult('Network error. Please try again.');
+            // toast handles errors
         } finally {
             setIsSubmitting(false);
         }
@@ -89,21 +99,23 @@ const BookingForm = () => {
 
     const handleNextStep = () => {
         if (!selectedTime || !selectedDateValue) {
-            setResult('Please select a date and time to continue.');
+            toast.error('Please select a date and time to continue.');
             return;
         }
-        setResult('');
         setStep(2);
     };
 
     const handleNextStep2 = () => {
         if (!formData.name || !formData.email || !formData.phone) {
-            setResult('Please complete all required fields to continue.');
+            toast.error('Please complete all required fields to continue.');
             return;
         }
-        setResult('');
         setStep(3);
     };
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }, [step]);
 
     return (
         <section className="bg-white min-h-screen flex items-start justify-center pt-32 pb-16 px-4">
@@ -121,7 +133,7 @@ const BookingForm = () => {
                         <div className="px-2 md:px-4">
                             <div className="flex items-start justify-between gap-4">
                                 <div>
-                                    <h2 className="text-3xl md:text-4xl font-semibold text-[#013b59] uppercase tracking-[0.2em]">Request Booking</h2>
+                                    <h2 className="text-3xl md:text-4xl font-semibold text-[#013b59] uppercase tracking-[0.2em] text-center md:text-left">Request Booking</h2>
                                     <p className="text-sm text-gray-500 mt-3">Select a date and time, then leave your details. We will contact you to complete payment.</p>
                                 </div>
                             </div>
@@ -176,7 +188,7 @@ const BookingForm = () => {
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center justify-end gap-4 pt-2">
+                                        <div className="flex w-full items-center justify-center gap-4 pt-2">
                                             <button
                                                 onClick={handleNextStep}
                                                 className="px-6 py-3 bg-black text-white text-xs uppercase tracking-[0.3em] hover:bg-[#111]"
@@ -215,7 +227,7 @@ const BookingForm = () => {
                                             <textarea id="booking-notes" name="additionalInfo" value={formData.additionalInfo} onChange={handleChange} placeholder="Any notes or special requests" autoComplete="off" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-sm focus:outline-none focus:border-[#c9a24d]" rows={3} />
                                         </div>
 
-                                        <div className="flex items-center justify-end gap-4 pt-2">
+                                        <div className="flex w-full items-center justify-center gap-4 pt-2">
                                             <button
                                                 onClick={handleNextStep2}
                                                 className="px-6 py-3 bg-black text-white text-xs uppercase tracking-[0.3em] hover:bg-[#111]"
@@ -253,10 +265,6 @@ const BookingForm = () => {
                                             </button>
                                         </div>
                                     </div>
-                                )}
-
-                                {result && (
-                                    <p className="text-sm text-[#c9a24d] mt-3">{result}</p>
                                 )}
 
                             </div>

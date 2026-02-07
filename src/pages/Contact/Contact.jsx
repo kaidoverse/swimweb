@@ -1,54 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import mail_icon from '../../assets/mail-icon.png';
-import phone_icon from '../../assets/phone-icon.png';
-import location_icon from '../../assets/location-icon.png';
+import React from 'react';
+import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
+import { toast } from 'sonner';
 
 const Contact = () => {
-    const [result, setResult] = useState('');
-    const [submitting, setSubmitting] = useState(false);
-
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult('');
-        setSubmitting(true);
-
         const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || '';
         if (!accessKey) {
-            setResult('Form configuration missing. Please try again later.');
-            setSubmitting(false);
+            toast.error('Form configuration missing. Please try again later.');
             return;
         }
 
         const formData = new FormData(event.target);
         formData.append('access_key', accessKey);
 
-        try {
+        const submitPromise = (async () => {
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData,
             });
 
             const data = await response.json();
-
-            if (data.success) {
-                setResult('✅ Message sent successfully!');
-                event.target.reset();
-            } else {
-                setResult(`❌ ${data.message}`);
+            if (!data.success) {
+                throw new Error(data.message || 'Something went wrong. Please try again.');
             }
+            return data;
+        })();
+
+        toast.promise(submitPromise, {
+            loading: 'Sending...',
+            success: () => {
+                event.target.reset();
+                return 'Message sent successfully!';
+            },
+            error: (err) => err?.message || 'Something went wrong. Please try again.',
+        });
+
+        try {
+            await submitPromise;
         } catch (error) {
-            setResult('❌ Something went wrong. Please try again.');
-        } finally {
-            setSubmitting(false);
+            // toast handles errors
         }
     };
-
-    useEffect(() => {
-        if (result && result !== 'Sending...') {
-            const timeout = setTimeout(() => setResult(''), 4000);
-            return () => clearTimeout(timeout);
-        }
-    }, [result]);
 
     return (
         <section className="bg-white text-black py-16 px-6 md:px-12">
@@ -57,6 +50,7 @@ const Contact = () => {
                 {/* Hero */}
                 <div className="text-center max-w-2xl mx-auto pt-16 space-y-3">
                     <h1 className="text-3xl md:text-4xl font-bold">Get In Touch</h1>
+                    <div className="mx-auto h-[2px] w-16 bg-[#c9a24d]" />
                     <p className="text-gray-700 text-base md:text-lg leading-relaxed">
                         Have questions or ready to start your swimming journey? Reach out to us today.
                     </p>
@@ -68,20 +62,23 @@ const Contact = () => {
                     {/* Contact Info */}
                     <div className="space-y-6">
                         {[
-                            { icon: mail_icon, title: 'Email Us', details: 'contact@swamschool.com' },
-                            { icon: phone_icon, title: 'Call Us', details: '+233 541 353 040' },
-                            { icon: location_icon, title: 'Visit Us', details: 'AH Hotel and Conference, Boundary Rd, Accra' },
-                        ].map((method, i) => (
+                            { icon: FiMail, title: 'Email Us', details: 'contact@swamschool.com' },
+                            { icon: FiPhone, title: 'Call Us', details: '+233 541 353 040' },
+                            { icon: FiMapPin, title: 'Visit Us', details: 'AH Hotel and Conference, Boundary Rd, Accra' },
+                        ].map((method, i) => {
+                            const Icon = method.icon;
+                            return (
                             <div key={i} className="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:shadow-sm transition-shadow">
-                                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full">
-                                    <img src={method.icon} alt={method.title} className="w-6 h-6" />
+                                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full text-[#c9a24d]">
+                                    <Icon className="w-6 h-6" />
                                 </div>
                                 <div>
                                     <h3 className="font-semibold">{method.title}</h3>
                                     <p className="text-gray-600">{method.details}</p>
                                 </div>
                             </div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     {/* Contact Form */}
@@ -142,13 +139,10 @@ const Contact = () => {
 
                             <button
                                 type="submit"
-                                disabled={submitting}
                                 className="w-full bg-black text-white text-xs uppercase tracking-[0.3em] py-3 hover:bg-[#111] transition-colors"
                             >
-                                {submitting ? 'Sending...' : 'Send Message'}
+                                Send Message
                             </button>
-
-                            {result && <p className="mt-3 text-center text-gray-700">{result}</p>}
                         </form>
                     </div>
 

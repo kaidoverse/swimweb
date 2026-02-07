@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Swaglogo3 from '@assets/Swaglogo3.png';
 import { ROUTES } from '../../constants/routes';
 
@@ -6,43 +6,48 @@ import { FiMail } from 'react-icons/fi';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import ScrollToTop from 'react-scroll-to-top';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const Footer = () => {
-    const [result, setResult] = useState("");
-
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult("Subscribing...");
         const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "";
         if (!accessKey) {
-            setResult("Form configuration missing. Please try again later.");
+            toast.error("Form configuration missing. Please try again later.");
             return;
         }
 
         const formData = new FormData(event.target);
         formData.append("access_key", accessKey);
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData,
+        const submitPromise = (async () => {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json();
+            if (!data.success) {
+                throw new Error("Something went wrong. Please try again.");
+            }
+            return data;
+        })();
+
+        toast.promise(submitPromise, {
+            loading: "Subscribing...",
+            success: () => {
+                event.target.reset();
+                return "You're subscribed!";
+            },
+            error: (err) => err?.message || "Something went wrong. Please try again.",
         });
 
-        const data = await response.json();
-
-        if (data.success) {
-            setResult("You’re subscribed! 🎉");
-            event.target.reset();
-        } else {
-            setResult("Something went wrong. Please try again.");
+        try {
+            await submitPromise;
+        } catch (err) {
+            // toast handles errors
         }
     };
-
-    useEffect(() => {
-        if (result && result !== "Subscribing...") {
-            const timeout = setTimeout(() => setResult(""), 3000);
-            return () => clearTimeout(timeout);
-        }
-    }, [result]);
 
     return (
         <footer className="bg-black text-gray-300">
@@ -108,12 +113,6 @@ const Footer = () => {
                                 <FiMail />
                             </button>
                         </form>
-
-                        {result && (
-                            <p className="mt-3 text-sm text-[#c9a24d]">
-                                {result}
-                            </p>
-                        )}
 
                         {/* Socials */}
                         <div className="flex gap-4 mt-6">

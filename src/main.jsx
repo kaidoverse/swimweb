@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Toaster } from 'sonner';
 
 import App from './App';
 import PageLoader from './Components/common/PageLoader';
@@ -51,6 +52,7 @@ const Root = () => (
     <VideoProvider>
         <BrowserRouter>
             <ScrollToTop />
+            <Toaster position="top-right" richColors />
             <ErrorBoundary>
                 <Suspense fallback={<PageLoader />}>
                     <Routes>
