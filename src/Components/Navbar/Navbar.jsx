@@ -62,6 +62,11 @@ const Navbar = () => {
                         display: block !important;
                     }
                 }
+
+                @keyframes navSlideDown {
+                    from { opacity: 0; transform: translateY(-120%); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
             `}</style>
 
             <div className="fixed top-5 left-0 right-0 z-50 flex justify-center px-5">
@@ -134,7 +139,7 @@ const Navbar = () => {
 
             {mobileMenu && (
                 <div className="fixed top-[88px] left-1/2 -translate-x-1/2 z-50 w-[calc(100%-40px)] max-w-[1200px] px-2">
-                    <aside className="bg-black text-white rounded-[28px] px-6 py-6 shadow-[0_10px_30px_rgba(0,0,0,0.35)] animate-[fadeSlideIn_0.25s_ease_forwards]">
+                    <aside className="bg-black text-white rounded-[28px] px-6 py-6 shadow-[0_10px_30px_rgba(0,0,0,0.35)] animate-[navSlideDown_0.35s_cubic-bezier(0.16,1,0.3,1)_forwards] will-change-transform">
                         <ul className="flex flex-col gap-0 list-none m-0 p-0">
                             {navLinks.map(({ path, label }) => (
                                 <li key={path} className="my-5 mx-0">
