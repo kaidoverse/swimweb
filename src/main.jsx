@@ -8,7 +8,6 @@ import PageLoader from './Components/common/PageLoader';
 import { VideoProvider } from './context/VideoContext';
 import './index.css';
 
-// --- Error Boundary for lazy-loaded pages ---
 class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -19,12 +18,38 @@ class ErrorBoundary extends React.Component {
     }
     render() {
         if (this.state.hasError)
-            return <div className="text-center mt-20 text-red-600">Oops, something went wrong!</div>;
+            return (
+                <div className="min-h-screen bg-white flex items-start justify-center pt-28 px-6">
+                    <div className="w-full max-w-2xl rounded-3xl border border-[#c9a24d]/40 bg-white p-8 text-center shadow-[0_18px_45px_rgba(1,59,89,0.12)]">
+                        <p className="text-[11px] uppercase tracking-[0.35em] text-[#c9a24d]">Something Went Wrong</p>
+                        <h1 className="mt-4 text-2xl sm:text-3xl font-semibold text-[#013b59]">
+                            We couldn’t load this page
+                        </h1>
+                        <div className="mx-auto mt-4 h-[2px] w-16 bg-[#c9a24d]" />
+                        <p className="mt-4 text-sm sm:text-base text-[#4a4f63]">
+                            Please refresh the page or return home. If the problem persists, contact our team.
+                        </p>
+                        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <button
+                                onClick={() => window.location.reload()}
+                                className="px-7 py-3 bg-black text-white text-xs uppercase tracking-[0.3em] hover:bg-[#111]"
+                            >
+                                Try Again
+                            </button>
+                            <a
+                                href="/"
+                                className="px-7 py-3 border border-gray-300 text-xs uppercase tracking-[0.3em] text-gray-700 hover:border-[#c9a24d]"
+                            >
+                                Go Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
         return this.props.children;
     }
 }
 
-// --- Lazy-loaded pages ---
 const HomePage = React.lazy(() => import('./pages/Home/HomePage'));
 const Contact = React.lazy(() => import('./pages/Contact/Contact'));
 const InstructPage = React.lazy(() => import('./pages/InstructPage/InstructPage'));
