@@ -113,6 +113,9 @@ const BookingForm = () => {
     };
 
     useEffect(() => {
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
+            document.activeElement.blur();
+        }
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }, [step]);
 
@@ -167,7 +170,7 @@ const BookingForm = () => {
                                                         }
                                                     }}
                                                     autoComplete="off"
-                                                    className="w-full border-0 border-b border-gray-300 px-0 py-2 text-sm focus:outline-none focus:border-[#c9a24d]"
+                                                    className="w-full border-0 border-b border-gray-300 px-0 py-2 text-base sm:text-sm focus:outline-none focus:border-[#c9a24d]"
                                                 />
                                             </div>
                                         </div>
@@ -203,27 +206,27 @@ const BookingForm = () => {
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                             <div>
                                                 <label htmlFor="booking-name" className="text-[11px] uppercase tracking-[0.25em] text-gray-500">Name <span className="text-[#c9a24d]">*</span></label>
-                                                <input id="booking-name" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" autoComplete="name" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-sm focus:outline-none focus:border-[#c9a24d]" />
+                                                <input id="booking-name" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" autoComplete="name" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-base sm:text-sm focus:outline-none focus:border-[#c9a24d]" />
                                             </div>
                                             <div>
                                                 <label htmlFor="booking-email" className="text-[11px] uppercase tracking-[0.25em] text-gray-500">Email <span className="text-[#c9a24d]">*</span></label>
-                                                <input id="booking-email" name="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" autoComplete="email" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-sm focus:outline-none focus:border-[#c9a24d]" />
+                                                <input id="booking-email" name="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" autoComplete="email" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-base sm:text-sm focus:outline-none focus:border-[#c9a24d]" />
                                             </div>
                                         </div>
 
                                         <div>
                                             <label htmlFor="booking-phone" className="text-[11px] uppercase tracking-[0.25em] text-gray-500">Phone <span className="text-[#c9a24d]">*</span></label>
-                                            <input id="booking-phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="e.g. +233 24 000 0000" autoComplete="tel" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-sm focus:outline-none focus:border-[#c9a24d]" />
+                                            <input id="booking-phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="e.g. +233 24 000 0000" autoComplete="tel" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-base sm:text-sm focus:outline-none focus:border-[#c9a24d]" />
                                         </div>
 
                                         <div>
                                             <label htmlFor="booking-age" className="text-[11px] uppercase tracking-[0.25em] text-gray-500">Age</label>
-                                            <input id="booking-age" name="age" value={age} onChange={(e) => setAge(e.target.value)} placeholder="Your age" autoComplete="bday" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-sm focus:outline-none focus:border-[#c9a24d]" />
+                                            <input id="booking-age" name="age" value={age} onChange={(e) => setAge(e.target.value)} placeholder="Your age" autoComplete="bday" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-base sm:text-sm focus:outline-none focus:border-[#c9a24d]" />
                                         </div>
 
                                         <div>
                                             <label htmlFor="booking-notes" className="text-[11px] uppercase tracking-[0.25em] text-gray-500">Notes</label>
-                                            <textarea id="booking-notes" name="additionalInfo" value={formData.additionalInfo} onChange={handleChange} placeholder="Any notes or special requests" autoComplete="off" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-sm focus:outline-none focus:border-[#c9a24d]" rows={3} />
+                                            <textarea id="booking-notes" name="additionalInfo" value={formData.additionalInfo} onChange={handleChange} placeholder="Any notes or special requests" autoComplete="off" className="mt-3 w-full border-0 border-b border-gray-300 px-0 py-2 text-base sm:text-sm focus:outline-none focus:border-[#c9a24d]" rows={3} />
                                         </div>
 
                                         <div className="flex w-full items-center justify-center gap-4 pt-2">
