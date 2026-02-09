@@ -30,7 +30,7 @@ const BookingForm = () => {
     const handleBack = () => {
         if (step === 3) return setStep(2);
         if (step === 2) return setStep(1);
-        return navigate(ROUTES.PACKAGES);
+        return navigate(-1);
     };
 
     const handleChange = (e) => {
@@ -91,7 +91,6 @@ const BookingForm = () => {
         try {
             await submitPromise;
         } catch (err) {
-            // toast handles errors
         } finally {
             setIsSubmitting(false);
         }

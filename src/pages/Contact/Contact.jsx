@@ -39,7 +39,6 @@ const Contact = () => {
         try {
             await submitPromise;
         } catch (error) {
-            // toast handles errors
         }
     };
 
@@ -63,20 +62,20 @@ const Contact = () => {
                     <div className="space-y-6">
                         {[
                             { icon: FiMail, title: 'Email Us', details: 'contact@swamschool.com' },
-                            { icon: FiPhone, title: 'Call Us', details: '+233 541 353 040' },
+                            { icon: FiPhone, title: 'Call Us', details: '+123-456-7890' },
                             { icon: FiMapPin, title: 'Visit Us', details: 'AH Hotel and Conference, Boundary Rd, Accra' },
                         ].map((method, i) => {
                             const Icon = method.icon;
                             return (
-                            <div key={i} className="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:shadow-sm transition-shadow">
-                                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full text-[#c9a24d]">
-                                    <Icon className="w-6 h-6" />
+                                <div key={i} className="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:shadow-sm transition-shadow">
+                                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full text-[#c9a24d]">
+                                        <Icon className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold">{method.title}</h3>
+                                        <p className="text-gray-600">{method.details}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-semibold">{method.title}</h3>
-                                    <p className="text-gray-600">{method.details}</p>
-                                </div>
-                            </div>
                             );
                         })}
                     </div>

@@ -19,7 +19,6 @@ const Hero = () => {
 
     return (
         <>
-            {/* Keyframes for fade/zoom animations */}
             <style>{`
         @keyframes fadeSlideIn {
           from { opacity: 0; transform: translateY(20px); }
@@ -32,7 +31,6 @@ const Hero = () => {
       `}</style>
 
             <div className="relative w-full min-h-screen overflow-hidden bg-black">
-                {/* Images */}
                 {slides.map((slide, idx) => (
                     <img
                         key={idx}
@@ -43,12 +41,10 @@ const Hero = () => {
                     />
                 ))}
 
-                {/* Dark overlay */}
                 <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-10"></div>
 
-                {/* Content: Text + Button */}
                 <div
-                    key={activeIndex} // ✅ Remount on slide change to retrigger animation
+                    key={activeIndex}
                     className="absolute bottom-20 md:bottom-24 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center text-center text-white w-full px-5 sm:px-8"
                 >
                     <h1 className="max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-semibold leading-tight sm:leading-tight md:leading-[1.15] mb-5 animate-[fadeSlideIn_0.9s_ease-out_forwards] [animation-fill-mode:both]">

@@ -45,7 +45,6 @@ const Footer = () => {
         try {
             await submitPromise;
         } catch (err) {
-            // toast handles errors
         }
     };
 
@@ -86,7 +85,7 @@ const Footer = () => {
                             Contact
                         </h3>
                         <ul className="space-y-2 text-sm">
-                            <li>123 Citrus Lane</li>
+                            <li>AH Hotel and Conference, <br /> Boundary Rd, Accra</li>
                             <li>123-456-7890</li>
                             <li>Swama@swa.com</li>
                         </ul>

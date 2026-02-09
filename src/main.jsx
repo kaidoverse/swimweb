@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigationType } from 'react-router-dom';
 import { Toaster } from 'sonner';
 
 import App from './App';
@@ -38,16 +38,16 @@ const ClientSays = React.lazy(() => import('./pages/ClientSays/ClientSays'));
 const Breaststroke = React.lazy(() => import('./Routes/Breaststroke/Breaststroke'));
 const Membership = React.lazy(() => import('./pages/Membership/Membership'));
 
-// --- ScrollToTop Component ---
 const ScrollToTop = () => {
     const { pathname } = useLocation();
+    const navigationType = useNavigationType();
     React.useEffect(() => {
+        if (navigationType === 'POP') return;
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    }, [pathname]);
+    }, [pathname, navigationType]);
     return null;
 };
 
-// --- Root Component ---
 const Root = () => (
     <VideoProvider>
         <BrowserRouter>
